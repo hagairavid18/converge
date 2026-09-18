@@ -6,10 +6,14 @@ fixed concatenation order), and cache one file per sample -- matching the
 `dl.datasets.mutation_csv_dataset` cache contract (see
 `data.embedding_pipeline.cache`).
 
-Each chain is still run through the structure/sequence models separately,
-never concatenated before inference, per the Implementation Spec's "as
-separate chains, not concatenated" -- only the resulting per-residue
-*outputs* are concatenated afterwards, for storage/batching convenience.
+Structure embeddings use a mixed backbone by `ChainRole` (see
+`data.embedding_pipeline.structure_backend`): IgFold for heavy/light chains
+(called once for both together, since IgFold models VH-VL pairing jointly),
+ESMFold for the antigen chain. Sequence embeddings (ESM-2) are unchanged and
+still run per chain independently, uniformly across all three roles. Either
+way, chains are never concatenated before inference -- only the resulting
+per-residue *outputs* are concatenated afterwards, for storage/batching
+convenience.
 
 Per-residue interface-region weighting was dropped from this cache: the
 model's pooling is pure distance-based Gaussian falloff (no consumer of a
@@ -24,15 +28,15 @@ without recomputing distances from scratch.
 
 `shared.constants.ACTIVE_EMBEDDING_SOURCE_MODE` gates which backend(s)
 actually run, not just which fields the model reads: under `SEQUENCE_ONLY`,
-ESMFold is never invoked at all (it is the ~100x-larger, much slower model),
-so `wt`/`mut_structure_*` keys are simply absent from a sample's cache file
-rather than computed and discarded -- `dl.models.schemas.ModelInputs`
-already treats those fields as `Optional`/`None` for exactly this case.
-Structure embeddings for samples processed under `SEQUENCE_ONLY` do not
-exist until deliberately backfilled later (e.g. on a GPU); this is an
-accepted, deliberate gap, not an oversight. Symmetrically, `STRUCTURE_ONLY`
-skips ESM-2. `real_structure_features` and `residue_coordinates` are cheap,
-non-ML, real-geometry outputs and are always computed regardless of mode.
+neither IgFold nor ESMFold is invoked at all, so `wt`/`mut_structure_*` keys
+are simply absent from a sample's cache file rather than computed and
+discarded -- `dl.models.schemas.ModelInputs` already treats those fields as
+`Optional`/`None` for exactly this case. Structure embeddings for samples
+processed under `SEQUENCE_ONLY` do not exist until deliberately backfilled
+later; this is an accepted, deliberate gap, not an oversight. Symmetrically,
+`STRUCTURE_ONLY` skips ESM-2. `real_structure_features` and
+`residue_coordinates` are cheap, non-ML, real-geometry outputs and are
+always computed regardless of mode.
 """
 
 from __future__ import annotations
@@ -51,11 +55,21 @@ from data.embedding_pipeline.sequence_backend import (
     compute_sequence_pseudo_log_likelihood,
 )
 from data.embedding_pipeline.structure_backend import (
+    compute_mutant_antibody_structural_embeddings,
     compute_mutant_structural_embedding,
+    compute_wild_type_antibody_structural_embeddings,
     compute_wild_type_structural_embedding,
 )
 from data.structures import chain_ca_coordinates, chain_sequence, get_chain, load_structure
-from shared.constants import ACTIVE_EMBEDDING_SOURCE_MODE, EmbeddingSourceMode, MutationRecord, PointMutation
+from shared.constants import (
+    ACTIVE_EMBEDDING_SOURCE_MODE,
+    ChainRole,
+    EmbeddingSourceMode,
+    MutationRecord,
+    PointMutation,
+)
+
+ANTIBODY_CHAIN_ROLES = (ChainRole.HEAVY, ChainRole.LIGHT)
 
 
 def should_compute_sequence_embeddings() -> bool:
@@ -73,7 +87,76 @@ def group_mutations_by_chain_id(mutations: list[PointMutation]) -> dict[str, lis
     return grouped
 
 
-def compute_wild_type_chain_bundle(structure, chain_id: str) -> dict:
+def invert_chain_map(chain_map: dict[str, str]) -> dict[str, ChainRole]:
+    return {chain_id: ChainRole(role_value) for role_value, chain_ids in chain_map.items() for chain_id in chain_ids}
+
+
+def split_chain_ids_by_backbone(
+    ordered_chain_ids: list[str], chain_role_by_id: dict[str, ChainRole]
+) -> tuple[list[str], list[str]]:
+    antibody_chain_ids = [c for c in ordered_chain_ids if chain_role_by_id[c] in ANTIBODY_CHAIN_ROLES]
+    antigen_chain_ids = [c for c in ordered_chain_ids if chain_role_by_id[c] == ChainRole.ANTIGEN]
+    return antibody_chain_ids, antigen_chain_ids
+
+
+def compute_sequence_features(sequence: str) -> dict:
+    pseudo_log_likelihood = compute_sequence_pseudo_log_likelihood(sequence)
+    return {
+        "sequence_embedding": compute_sequence_embeddings(sequence),
+        "sequence_confidence": np.exp(pseudo_log_likelihood),
+        "sequence_pseudo_log_likelihood": pseudo_log_likelihood,
+    }
+
+
+def compute_wild_type_structure_features(structure, antibody_chain_ids: list[str], antigen_chain_ids: list[str]) -> dict[str, dict]:
+    features: dict[str, dict] = {}
+    if not should_compute_structure_embeddings():
+        return features
+
+    if antibody_chain_ids:
+        chain_sequences = {c: chain_sequence(get_chain(structure, c)) for c in antibody_chain_ids}
+        for chain_id, (embedding, plddt_diagnostic) in compute_wild_type_antibody_structural_embeddings(
+            chain_sequences
+        ).items():
+            features[chain_id] = {"structure_embedding": embedding, "structure_plddt_diagnostic": plddt_diagnostic}
+
+    for chain_id in antigen_chain_ids:
+        sequence = chain_sequence(get_chain(structure, chain_id))
+        embedding, plddt_diagnostic = compute_wild_type_structural_embedding(sequence)
+        features[chain_id] = {"structure_embedding": embedding, "structure_plddt_diagnostic": plddt_diagnostic}
+
+    return features
+
+
+def compute_mutant_structure_features(
+    structure,
+    antibody_chain_ids: list[str],
+    antigen_chain_ids: list[str],
+    mutations_by_chain_id: dict[str, list[PointMutation]],
+) -> dict[str, dict]:
+    features: dict[str, dict] = {}
+    if not should_compute_structure_embeddings():
+        return features
+
+    if antibody_chain_ids:
+        chain_sequences = {
+            c: mutant_sequence_for_chain(get_chain(structure, c), mutations_by_chain_id.get(c, []))
+            for c in antibody_chain_ids
+        }
+        for chain_id, (embedding, confidence) in compute_mutant_antibody_structural_embeddings(
+            chain_sequences
+        ).items():
+            features[chain_id] = {"structure_embedding": embedding, "structure_confidence": confidence}
+
+    for chain_id in antigen_chain_ids:
+        mutant_sequence = mutant_sequence_for_chain(get_chain(structure, chain_id), mutations_by_chain_id.get(chain_id, []))
+        embedding, confidence = compute_mutant_structural_embedding(mutant_sequence)
+        features[chain_id] = {"structure_embedding": embedding, "structure_confidence": confidence}
+
+    return features
+
+
+def compute_wild_type_chain_bundle(structure, chain_id: str, structure_features_by_chain: dict[str, dict]) -> dict:
     chain = get_chain(structure, chain_id)
     sequence = chain_sequence(chain)
     bundle = {
@@ -82,34 +165,26 @@ def compute_wild_type_chain_bundle(structure, chain_id: str) -> dict:
     }
 
     if should_compute_sequence_embeddings():
-        pseudo_log_likelihood = compute_sequence_pseudo_log_likelihood(sequence)
-        bundle["sequence_embedding"] = compute_sequence_embeddings(sequence)
-        bundle["sequence_confidence"] = np.exp(pseudo_log_likelihood)
-        bundle["sequence_pseudo_log_likelihood"] = pseudo_log_likelihood
+        bundle.update(compute_sequence_features(sequence))
 
-    if should_compute_structure_embeddings():
-        structural_embedding, structural_plddt_diagnostic = compute_wild_type_structural_embedding(sequence)
-        bundle["structure_embedding"] = structural_embedding
-        bundle["structure_plddt_diagnostic"] = structural_plddt_diagnostic
+    if chain_id in structure_features_by_chain:
+        bundle.update(structure_features_by_chain[chain_id])
 
     return bundle
 
 
-def compute_mutant_chain_bundle(structure, chain_id: str, mutations: list[PointMutation]) -> dict:
+def compute_mutant_chain_bundle(
+    structure, chain_id: str, mutations: list[PointMutation], structure_features_by_chain: dict[str, dict]
+) -> dict:
     chain = get_chain(structure, chain_id)
     mutant_sequence = mutant_sequence_for_chain(chain, mutations)
     bundle = {}
 
     if should_compute_sequence_embeddings():
-        pseudo_log_likelihood = compute_sequence_pseudo_log_likelihood(mutant_sequence)
-        bundle["sequence_embedding"] = compute_sequence_embeddings(mutant_sequence)
-        bundle["sequence_confidence"] = np.exp(pseudo_log_likelihood)
-        bundle["sequence_pseudo_log_likelihood"] = pseudo_log_likelihood
+        bundle.update(compute_sequence_features(mutant_sequence))
 
-    if should_compute_structure_embeddings():
-        structural_embedding, structural_confidence = compute_mutant_structural_embedding(mutant_sequence)
-        bundle["structure_embedding"] = structural_embedding
-        bundle["structure_confidence"] = structural_confidence
+    if chain_id in structure_features_by_chain:
+        bundle.update(structure_features_by_chain[chain_id])
 
     return bundle
 
@@ -185,9 +260,19 @@ def compute_and_cache_entry_embeddings(record: MutationRecord, chain_map: dict[s
     mutations_by_chain_id = group_mutations_by_chain_id(record.mutations)
 
     ordered_chain_ids = ordered_chain_ids_for_sample(chain_map)
-    wt_chain_bundles = [compute_wild_type_chain_bundle(structure, chain_id) for chain_id in ordered_chain_ids]
+    chain_role_by_id = invert_chain_map(chain_map)
+    antibody_chain_ids, antigen_chain_ids = split_chain_ids_by_backbone(ordered_chain_ids, chain_role_by_id)
+
+    wt_structure_features = compute_wild_type_structure_features(structure, antibody_chain_ids, antigen_chain_ids)
+    mut_structure_features = compute_mutant_structure_features(
+        structure, antibody_chain_ids, antigen_chain_ids, mutations_by_chain_id
+    )
+
+    wt_chain_bundles = [
+        compute_wild_type_chain_bundle(structure, chain_id, wt_structure_features) for chain_id in ordered_chain_ids
+    ]
     mut_chain_bundles = [
-        compute_mutant_chain_bundle(structure, chain_id, mutations_by_chain_id.get(chain_id, []))
+        compute_mutant_chain_bundle(structure, chain_id, mutations_by_chain_id.get(chain_id, []), mut_structure_features)
         for chain_id in ordered_chain_ids
     ]
 

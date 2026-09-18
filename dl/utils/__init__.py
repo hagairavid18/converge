@@ -15,6 +15,7 @@ from dl.utils.region_codes import (
     UNKNOWN_REGION_ID,
     regions_to_tensor,
 )
+from dl.utils.shape_utils import flatten_last_singleton_dim
 
 __all__ = [
     "BOUNDED_ID",
@@ -22,6 +23,7 @@ __all__ = [
     "ClassNameParams",
     "compute_bin_centers",
     "expected_ddg_from_logits",
+    "flatten_last_singleton_dim",
     "ID_TO_LABEL_TYPE",
     "ID_TO_REGION",
     "INEQ_ID",

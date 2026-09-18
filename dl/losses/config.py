@@ -64,6 +64,19 @@ class DDGLossConfig(BaseModel):
     comparable to the (small, noise-floor-scaled) bounded classification term.
     """
 
+    regression_dead_zone_kcal_mol: float = NOISE_FLOOR_KCAL_MOL
+    regression_penalty_growth: Literal["linear", "squared"] = "squared"
+    regression_scale: float = 1.0
+    """Design choice for the regression alternative to the bounded-ddG head
+    (Implementation Spec sec. 4, "as you specify at implementation"): a
+    dead-zone loss with zero penalty for predictions within
+    `regression_dead_zone_kcal_mol` of the true value (sized to
+    `NOISE_FLOOR_KCAL_MOL`, the same empirical noise floor used everywhere
+    else), and penalty growing as the squared kcal/mol distance past the
+    dead zone beyond that -- squared rather than linear so this term is
+    directly aligned with RMSE, the primary regression evaluation metric.
+    """
+
     ineq_default_bound_kcal_mol: float = Field(default_factory=outermost_bin_edge_kcal_mol)
     """Fallback bound for an "ineq" entry whose numeric bound is missing
     (MutationRecord.ddg_kcal_mol is only best-effort for ineq entries): the

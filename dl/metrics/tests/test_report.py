@@ -66,6 +66,20 @@ def test_compute_full_report_poor_batch_has_low_accuracy():
     assert report.n_nb == 1
 
 
+def test_compute_full_report_without_regression_pred_has_no_regression_summary():
+    report = compute_full_report(make_perfect_batch(), SplitName.HELD_OUT_PDB, INEQ_DEFAULT_BOUND, NB_ANCHOR, BIN_EDGES)
+    assert report.regression_summary is None
+
+
+def test_compute_full_report_with_regression_pred_adds_regression_summary():
+    batch = make_perfect_batch()
+    batch.regression_pred = batch.ddg_kcal_mol.clone()
+    report = compute_full_report(batch, SplitName.HELD_OUT_PDB, INEQ_DEFAULT_BOUND, NB_ANCHOR, BIN_EDGES)
+    assert report.regression_summary is not None
+    assert report.regression_summary["mae"] == 0.0
+    assert report.regression_summary["n"] == 5
+
+
 def test_reports_for_all_splits_are_independent_and_never_pooled():
     reports = compute_reports_for_all_splits(
         {

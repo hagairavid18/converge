@@ -252,6 +252,44 @@ def test_build_sample_tensor_bundle_omits_structure_fields_under_sequence_only(m
     assert "mut_structure_confidence" not in bundle
 
 
+def test_invert_chain_map_and_split_by_backbone():
+    from data.embedding_pipeline.entry_embeddings import invert_chain_map, split_chain_ids_by_backbone
+
+    chain_map = {"heavy": "B", "light": "A", "antigen": "MN"}
+    roles = invert_chain_map(chain_map)
+    assert roles == {
+        "B": ChainRole.HEAVY,
+        "A": ChainRole.LIGHT,
+        "M": ChainRole.ANTIGEN,
+        "N": ChainRole.ANTIGEN,
+    }
+
+    antibody_ids, antigen_ids = split_chain_ids_by_backbone(["B", "A", "M", "N"], roles)
+    assert antibody_ids == ["B", "A"]
+    assert antigen_ids == ["M", "N"]
+
+
+def test_pad_structure_embedding_to_common_dim():
+    import numpy as np
+
+    from data.embedding_pipeline.structure_backend import (
+        STRUCTURE_EMBEDDING_COMMON_DIM,
+        pad_structure_embedding_to_common_dim,
+    )
+
+    small = np.ones((5, 64), dtype=np.float32)
+    padded = pad_structure_embedding_to_common_dim(small)
+    assert padded.shape == (5, STRUCTURE_EMBEDDING_COMMON_DIM)
+    assert (padded[:, :64] == 1.0).all()
+    assert (padded[:, 64:] == 0.0).all()
+
+    already_full = np.ones((5, STRUCTURE_EMBEDDING_COMMON_DIM), dtype=np.float32)
+    assert pad_structure_embedding_to_common_dim(already_full).shape == already_full.shape
+
+    with pytest.raises(ValueError):
+        pad_structure_embedding_to_common_dim(np.ones((5, STRUCTURE_EMBEDDING_COMMON_DIM + 1), dtype=np.float32))
+
+
 _RAW_DATA_AVAILABLE = SKEMPI_RAW_CSV.exists() and SKEMPI_RAW_STRUCTURES_DIR.exists()
 
 

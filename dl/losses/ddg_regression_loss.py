@@ -1,9 +1,16 @@
-"""Combined, label-type-dispatched ddG loss (Implementation Spec sec. 4).
+"""Regression counterpart to `dl.losses.ddg_loss.DDGLoss` (Implementation
+Spec sec. 4): the bounded term uses `BoundedRegressionLoss` (a dead-zone
+regression loss) instead of the bin-distance-weighted classifier, operating
+directly on a single continuous ddG prediction per sample rather than
+classification logits. The ineq/n.b. hinge term is unchanged -- it already
+needs a continuous ddG estimate, which the regression head provides directly
+(no need to derive one from classification logits, unlike `DDGLoss`).
 
-Dispatches each sample in a mixed batch to the bin-distance-weighted
-classification term (bounded entries) and/or the hinge term (ineq/n.b.
-entries, iteration 2 only), then combines the two batch-averaged terms with
-optional inverse-frequency reweighting (`BATCH_IMBALANCE_REWEIGHT`).
+Config-selectable alongside `DDGLoss` via `dl.utils.factory.build_object`:
+`build_object(dl.losses, "DDGLoss", ...)` for the classification target,
+`build_object(dl.losses, "DDGRegressionLoss", ...)` for this one. Both share
+`DDGLossConfig` and the same label-type dispatch/combination logic
+(`dl.losses.combination_utils`).
 """
 
 from __future__ import annotations
@@ -15,7 +22,7 @@ from torch import nn
 
 from shared.constants import LossIteration
 
-from dl.losses.bounded_classification_loss import BinDistanceWeightedLoss
+from dl.losses.bounded_regression_loss import BoundedRegressionLoss
 from dl.losses.combination_utils import (
     combine_bounded_and_hinge_terms,
     count_label_type,
@@ -23,19 +30,13 @@ from dl.losses.combination_utils import (
 )
 from dl.losses.config import DDGLossConfig
 from dl.losses.hinge_loss import HingeLoss
-from dl.utils.bin_utils import compute_bin_centers, expected_ddg_from_logits
 from dl.utils.bound_resolution import resolve_bounds as resolve_ddg_bounds
 from dl.utils.label_codes import BOUNDED_ID, INEQ_ID, NB_ID
+from dl.utils.shape_utils import flatten_last_singleton_dim
 
 
 @dataclass
-class DDGLossOutput:
-    """A plain dataclass, not a Pydantic model: `total_loss` must stay a live,
-    autograd-attached tensor for `.backward()` to work, whereas Pydantic in
-    this package is reserved for validated boundary data (config, metric
-    reports) that never carries an in-flight autograd graph.
-    """
-
+class DDGRegressionLossOutput:
     total_loss: torch.Tensor
     bounded_loss: torch.Tensor
     hinge_loss: torch.Tensor
@@ -46,20 +47,16 @@ class DDGLossOutput:
     n_nb: int
 
 
-class DDGLoss(nn.Module):
-    """`config` may be omitted and/or partially overridden by flat kwargs, so
-    `dl.utils.factory.build_object(dl.losses, "DDGLoss", **flat_params)` works
-    directly from a plain config dict as well as from a pre-built `DDGLossConfig`.
+class DDGRegressionLoss(nn.Module):
+    """`config` may be omitted and/or partially overridden by flat kwargs,
+    mirroring `dl.losses.ddg_loss.DDGLoss`.
     """
 
     def __init__(self, config: DDGLossConfig | None = None, **config_overrides):
         super().__init__()
         self.config = config or DDGLossConfig(**config_overrides)
-        self.bounded_loss_fn = BinDistanceWeightedLoss(self.config)
+        self.bounded_loss_fn = BoundedRegressionLoss(self.config)
         self.hinge_loss_fn = HingeLoss(self.config)
-        self.register_buffer(
-            "bin_centers", compute_bin_centers(self.config.bin_edges_kcal_mol), persistent=False
-        )
 
     def resolve_bounds(
         self,
@@ -76,18 +73,17 @@ class DDGLoss(nn.Module):
         )
 
     def compute_bounded_term(
-        self, logits: torch.Tensor, target_bin: torch.Tensor, bounded_mask: torch.Tensor, n_bounded: int
+        self, predicted_ddg: torch.Tensor, target_ddg: torch.Tensor, bounded_mask: torch.Tensor, n_bounded: int
     ) -> torch.Tensor:
         if n_bounded == 0:
-            return torch.zeros((), device=logits.device, dtype=logits.dtype)
-        safe_target_bin = target_bin.clone()
-        safe_target_bin[~bounded_mask] = 0
-        per_sample_bounded = self.bounded_loss_fn(logits, safe_target_bin)
+            return torch.zeros((), device=predicted_ddg.device, dtype=predicted_ddg.dtype)
+        safe_target_ddg = torch.where(bounded_mask, target_ddg, torch.zeros_like(target_ddg))
+        per_sample_bounded = self.bounded_loss_fn(predicted_ddg, safe_target_ddg)
         return masked_mean(per_sample_bounded, bounded_mask, n_bounded)
 
     def compute_hinge_term(
         self,
-        logits: torch.Tensor,
+        predicted_ddg: torch.Tensor,
         label_type_id: torch.Tensor,
         bound_kcal_mol: torch.Tensor | None,
         direction: torch.Tensor | None,
@@ -95,11 +91,10 @@ class DDGLoss(nn.Module):
         n_hinge: int,
     ) -> torch.Tensor:
         if n_hinge == 0:
-            return torch.zeros((), device=logits.device, dtype=logits.dtype)
+            return torch.zeros((), device=predicted_ddg.device, dtype=predicted_ddg.dtype)
         if bound_kcal_mol is None or direction is None:
             raise ValueError("bound_kcal_mol and direction are required when the hinge term is active")
         resolved_bound, resolved_direction = self.resolve_bounds(label_type_id, bound_kcal_mol, direction)
-        predicted_ddg = expected_ddg_from_logits(logits, self.bin_centers)
         per_sample_hinge = self.hinge_loss_fn(predicted_ddg, resolved_bound, resolved_direction)
         return masked_mean(per_sample_hinge, hinge_mask, n_hinge)
 
@@ -112,21 +107,24 @@ class DDGLoss(nn.Module):
 
     def forward(
         self,
-        logits: torch.Tensor,
+        predicted_ddg: torch.Tensor,
         label_type_id: torch.Tensor,
-        target_bin: torch.Tensor,
+        target_ddg: torch.Tensor,
         bound_kcal_mol: torch.Tensor | None = None,
         direction: torch.Tensor | None = None,
         iteration: LossIteration | None = None,
-    ) -> DDGLossOutput:
+    ) -> DDGRegressionLossOutput:
         """
-        logits: (B, num_bins) float, the bounded-ddG classification head's raw logits.
+        predicted_ddg: (B,) or (B, 1) float, the regression head's single
+            scalar ddG prediction per sample.
         label_type_id: (B,) long, values in {BOUNDED_ID, INEQ_ID, NB_ID}.
-        target_bin: (B,) long, valid (and only used) where label_type_id == BOUNDED_ID.
-        bound_kcal_mol, direction: (B,) float, required only when the hinge term is
-            active; see `dl.losses.hinge_loss` and `resolve_bounds` for their contract.
+        target_ddg: (B,) float, the true ddG value; valid (and only used)
+            where label_type_id == BOUNDED_ID.
+        bound_kcal_mol, direction: (B,) float, required only when the hinge
+            term is active; see `dl.losses.hinge_loss` and `resolve_bounds`.
         iteration: overrides `self.config.iteration` (mainly for tests).
         """
+        predicted_ddg = flatten_last_singleton_dim(predicted_ddg)
         iteration = iteration or self.config.iteration
 
         bounded_mask = label_type_id == BOUNDED_ID
@@ -138,17 +136,17 @@ class DDGLoss(nn.Module):
 
         hinge_active = iteration == LossIteration.ITERATION_2_WITH_HINGE and n_hinge > 0
 
-        bounded_loss = self.compute_bounded_term(logits, target_bin, bounded_mask, n_bounded)
+        bounded_loss = self.compute_bounded_term(predicted_ddg, target_ddg, bounded_mask, n_bounded)
         hinge_loss = (
-            self.compute_hinge_term(logits, label_type_id, bound_kcal_mol, direction, hinge_mask, n_hinge)
+            self.compute_hinge_term(predicted_ddg, label_type_id, bound_kcal_mol, direction, hinge_mask, n_hinge)
             if hinge_active
-            else torch.zeros((), device=logits.device, dtype=logits.dtype)
+            else torch.zeros((), device=predicted_ddg.device, dtype=predicted_ddg.dtype)
         )
         total_loss, bounded_weight, hinge_weight = self.combine_terms(
             bounded_loss, hinge_loss, n_bounded, n_hinge, hinge_active
         )
 
-        return DDGLossOutput(
+        return DDGRegressionLossOutput(
             total_loss=total_loss,
             bounded_loss=bounded_loss.detach(),
             hinge_loss=hinge_loss.detach(),

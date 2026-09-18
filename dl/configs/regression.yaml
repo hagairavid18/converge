@@ -1,0 +1,21 @@
+dataset:
+  split: held_out_pdb
+  batch_size: 16
+
+model:
+  class_name: DDGPredictor
+  params:
+    active_heads: [regression]
+
+loss:
+  class_name: DDGRegressionLoss
+  params: {}
+
+metrics:
+  class_name: RegressionMAE
+  params: {}
+
+trainer:
+  max_epochs: 50
+  learning_rate: 0.001
+  experiment_name: regression_head_baseline

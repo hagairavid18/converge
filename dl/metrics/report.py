@@ -26,6 +26,7 @@ from dl.metrics.classification_metrics import (
     logits_to_pred_bin,
 )
 from dl.metrics.hinge_metrics import IneqCorrectSideAccuracy, NBCorrectSideAccuracy
+from dl.metrics.regression_metrics import compute_bounded_regression_report
 from dl.utils.bin_utils import compute_bin_centers, expected_ddg_from_logits
 from dl.utils.label_codes import BOUNDED_ID, INEQ_ID, NB_ID
 
@@ -33,6 +34,11 @@ from dl.utils.label_codes import BOUNDED_ID, INEQ_ID, NB_ID
 class DDGEvalBatch(BaseModel):
     """One split's worth of model outputs + labels + metadata, as tensors.
     Never mix samples from two different `SplitName` values into one batch.
+
+    `regression_pred` is optional: pass it (the regression head's per-sample
+    ddG estimate, shape (B,) or (B, 1)) only when evaluating the regression
+    alternative to the bounded-ddG head; `compute_full_report` adds
+    `regression_summary` to the report whenever it's present.
     """
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
@@ -45,6 +51,7 @@ class DDGEvalBatch(BaseModel):
     direction: torch.Tensor
     interface_region_id: torch.Tensor
     is_alanine_scanning: torch.Tensor
+    regression_pred: torch.Tensor | None = None
 
 
 class MetricsReport(BaseModel):
@@ -59,6 +66,7 @@ class MetricsReport(BaseModel):
     ddg_by_interface_region_true: dict
     alanine_scanning_vs_other_predicted: dict
     alanine_scanning_vs_other_true: dict
+    regression_summary: dict | None = None
 
 
 def bounded_classification_report(
@@ -121,6 +129,12 @@ def compute_full_report(
         nb_anchor_kcal_mol,
     )
 
+    regression_summary = (
+        compute_bounded_regression_report(batch.regression_pred, batch.ddg_kcal_mol, bounded_mask)
+        if batch.regression_pred is not None
+        else None
+    )
+
     return MetricsReport(
         split_name=split_name,
         n_bounded=int(bounded_mask.sum().item()),
@@ -133,6 +147,7 @@ def compute_full_report(
         ddg_by_interface_region_true=ddg_by_interface_region(batch.interface_region_id, batch.ddg_kcal_mol),
         alanine_scanning_vs_other_predicted=alanine_scanning_vs_other(batch.is_alanine_scanning, predicted_ddg),
         alanine_scanning_vs_other_true=alanine_scanning_vs_other(batch.is_alanine_scanning, batch.ddg_kcal_mol),
+        regression_summary=regression_summary,
     )
 
 

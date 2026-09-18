@@ -191,6 +191,22 @@ wheels = [
 ]
 
 [[package]]
+name = "antiberty"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "huggingface-hub" },
+    { name = "safetensors" },
+    { name = "torch" },
+    { name = "tqdm" },
+    { name = "transformers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/76/0b/ea9c15d9aae20263c3ecfff60ae0b1f5ceb05443781a30267fef05c6e5b4/antiberty-1.0.0.tar.gz", hash = "sha256:bcde554fd8bfd6386db4d9373e1e53d675cfa4e8a5bd394c37ece5ac36ab2248", size = 23123, upload-time = "2026-09-09T17:18:46.107Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3a/54/09c66cd9ac3268dd1c15b2c66bb02383c0d3ba4afc8945198d1a31aabe77/antiberty-1.0.0-py3-none-any.whl", hash = "sha256:6b8a20789a205bb38674c318d3c02e678a9b9b05594ec02f1b2ded988987ac48", size = 21614, upload-time = "2026-09-09T17:18:44.828Z" },
+]
+
+[[package]]
 name = "anyio"
 version = "4.15.1"
 source = { registry = "https://pypi.org/simple" }
@@ -905,6 +921,7 @@ dependencies = [
     { name = "accelerate" },
     { name = "biopython" },
     { name = "comet-ml" },
+    { name = "igfold" },
     { name = "ipykernel" },
     { name = "jupyter" },
     { name = "matplotlib" },
@@ -934,6 +951,7 @@ requires-dist = [
     { name = "accelerate", specifier = ">=1.15.0" },
     { name = "biopython", specifier = ">=1.88" },
     { name = "comet-ml", specifier = ">=3.58.6" },
+    { name = "igfold", specifier = ">=1.0.1" },
     { name = "ipykernel", specifier = ">=7.3.0" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "matplotlib", specifier = ">=3.11.2" },
@@ -1138,6 +1156,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/dd/1b/8ae20b8716d15a2ccb8e395a66921728903edf58a4b9e30046ad7fb63839/dulwich-1.2.15-cp315-cp315t-win32.whl", hash = "sha256:18dc286482e7c76df4865421385bf98ed93aacedf5947bfe12b3d1e2528dd36c", size = 1085741, upload-time = "2026-09-14T21:20:19.178Z" },
     { url = "https://files.pythonhosted.org/packages/50/90/2f4ae3ba60feedf7ccb2422c04006b0ccb3823f18eae15f90dabe4e714b4/dulwich-1.2.15-cp315-cp315t-win_amd64.whl", hash = "sha256:53fa50546d72a7c8ebda380c80c399bcc3e46509caa9762791f202058303cf2e", size = 1102662, upload-time = "2026-09-14T21:20:20.938Z" },
     { url = "https://files.pythonhosted.org/packages/3a/96/b4c8f1cf6c69811098415903ec299cdea87576c51b0c1f13f21215368c63/dulwich-1.2.15-py3-none-any.whl", hash = "sha256:5c863992962bab0fc5f75be132399a16f670f2a9283faf9aaeb953fd8891db83", size = 733132, upload-time = "2026-09-14T21:20:22.697Z" },
+]
+
+[[package]]
+name = "einops"
+version = "0.8.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/2c/77/850bef8d72ffb9219f0b1aac23fbc1bf7d038ee6ea666f331fa273031aa2/einops-0.8.2.tar.gz", hash = "sha256:609da665570e5e265e27283aab09e7f279ade90c4f01bcfca111f3d3e13f2827", size = 56261, upload-time = "2026-01-26T04:13:17.638Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl", hash = "sha256:54058201ac7087911181bfec4af6091bb59380360f069276601256a76af08193", size = 65638, upload-time = "2026-01-26T04:13:18.546Z" },
 ]
 
 [[package]]
@@ -1462,6 +1489,24 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz", hash = "sha256:a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44", size = 216463, upload-time = "2026-09-17T14:11:04.752Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl", hash = "sha256:ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c", size = 69583, upload-time = "2026-09-17T14:11:03.168Z" },
+]
+
+[[package]]
+name = "igfold"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "antiberty" },
+    { name = "biopython" },
+    { name = "einops" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "safetensors" },
+    { name = "torch" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5e/dc/083a5228d49256547140aaeed6829b3f1f1d5d1e6a359db2f2f83b9b7357/igfold-1.0.1.tar.gz", hash = "sha256:af5992654bde5635566a0b17d03359814a1f22e1a3119f7fc32d6983b5b70acd", size = 23255215, upload-time = "2026-09-09T17:44:27.709Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/50/82/bd146dce0f3995b94bffc978dea5407f23b8c940ce93e6d9a35130124a90/igfold-1.0.1-py3-none-any.whl", hash = "sha256:d939ebd6c6f67b0495eb605b2d0187eb1e49bdfeabf278dac0678b649edb7c4c", size = 23250253, upload-time = "2026-09-09T17:44:24.927Z" },
 ]
 
 [[package]]

@@ -88,10 +88,37 @@ worth revisiting and why.
   inferring mutation identity purely from the embedding-difference pathway (see
   CLAUDE.md's Code Style section). Not revisited unless the embedding-only
   approach underperforms.
-- **Structure/sequence backbones are ESMFold + ESM-2 only.** `IgFold`/`AbLang2`
-  are reserved enum values in `shared/constants.py` but not implemented. Worth
-  trying once the pipeline is validated, per the spec's staged embedding-ablation
-  plan.
+- **Structure backbone is now mixed: IgFold for antibody chains, ESMFold for
+  the antigen** (`AbLang2` remains a reserved, unimplemented sequence-backend
+  enum value). Chosen for speed -- IgFold is purpose-built for antibody
+  variable-domain prediction from sequence alone and is dramatically lighter
+  than ESMFold (real CPU runs: ~0.5-2s for a single IgFold call covering both
+  heavy+light jointly, vs. ~700-1200s for one ESMFold call on a similarly
+  sized chain) -- but it does not handle arbitrary sequences, so the antigen
+  chain still needs ESMFold. This is a deliberate reintroduction of
+  mixed-model complexity, not an oversight. Two design choices made while
+  implementing it, flagged for review rather than treated as settled:
+  - **Dimension mismatch (64 vs. 1024)**: IgFold's per-residue `structure_embs`
+    is 64-dim; ESMFold's `s_s` is 1024-dim. Since both feed the same
+    per-sample concatenated tensor, IgFold's output is zero-padded up to 1024
+    (`data.embedding_pipeline.structure_backend.pad_structure_embedding_to_common_dim`)
+    before concatenation -- the simplest resolution, but the 960 padded
+    zero-columns are inert signal for every antibody residue; a learned
+    projection instead of padding is an alternative if this turns out to
+    matter.
+  - **Confidence scale mismatch**: ESMFold reports pLDDT (0-1, higher is more
+    confident); IgFold reports prmsd (predicted RMSD in Angstroms, unbounded,
+    *lower* is more confident). Converted prmsd to a bounded,
+    higher-is-better pseudo-confidence via `exp(-prmsd)` so the two chain
+    groups' confidence values are at least on a comparable footing within the
+    same per-sample confidence tensor the model consumes -- an unvalidated
+    choice of transform, not a principled calibration between the two
+    models' uncertainty estimates.
+  - IgFold's license (JHU Academic Software License Agreement) permits
+    non-commercial use "including at commercial entities"; commercial use
+    needs a separate license through Johns Hopkins Technology Ventures. Not
+    a blocker for this research pipeline, but worth knowing before any
+    production/commercial use of the resulting cached embeddings.
 - **Regression loss variant not implemented.** The bounded-ΔΔG head is
   classification-only for now; raw `ddg_kcal_mol` is retained per-sample
   specifically so a regression head/loss can be added later without
@@ -113,8 +140,21 @@ worth revisiting and why.
   — this is expected to happen on a cloud GPU (Colab), per CLAUDE.md's Compute
   Environment section.
 - **No real training run yet.** Only the mandatory overfitting sanity check has
-  been run (on synthetic and small real-CSV-derived data). A first real training
-  run needs the full embedding cache populated first.
+  been run (on synthetic and small real-CSV-derived data).
+- **On-the-fly embedding extraction, not mandatory offline precompute — a deliberate
+  deviation from the spec.** The Implementation Spec says embeddings are "precomputed
+  once per entry, offline, before training." Since training isn't happening on this
+  CPU-only machine, the dataset instead checks for a cached `.pt` file and computes +
+  caches it on a miss, rather than requiring a separate full precompute pass first.
+  This still produces the same cache format either way, so a real training run on a
+  GPU can either rely on this lazy path or run the full offline pipeline first —
+  both work.
+- **Structure backbone is per-chain-role, not uniform** — a further deliberate
+  deviation from the original "simplest, one model for every chain" decision.
+  IgFold now handles heavy/light (antibody) chains; ESMFold handles the antigen
+  chain. Chosen for speed (IgFold is much lighter/faster, purpose-built for
+  antibody variable-domain prediction) at the cost of the mixed-model complexity
+  we'd originally avoided. Revisit if this ever becomes a real maintenance burden.
 
 ## Heuristics worth revisiting
 

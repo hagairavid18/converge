@@ -1,17 +1,23 @@
 """Prediction heads attached to the pooled representation (Implementation Spec §3).
 
-Iteration 1 (`shared.constants.ACTIVE_LOSS_ITERATION`) uses only the
-classification head over `DDG_NUM_BINS`. The set of active heads is
-config-driven (`ModelConfig.active_heads`) and built from `HEAD_FACTORIES`,
-so a later hinge/inequality head (iteration 2, owned by the losses/metrics
-workstream) can be registered via `register_head_factory` and attached to
-the same pooled vector without restructuring the backbone.
+Two head types share the same pooled vector, selected via
+`ModelConfig.active_heads` (`["classification"]`, `["regression"]`, or
+both) and built from `HEAD_FACTORIES` -- a new head type is a factory
+registered via `register_head_factory`, not a change to `DDGPredictor`.
+
+- `classification`: logits over `DDG_NUM_BINS` bins (iteration 1's
+  bounded-ddG head).
+- `regression`: `head_outputs["regression"]` is the predicted ddG in
+  kcal/mol, shape `[B]` (one scalar per sample, squeezed from the
+  underlying `Linear(input_dim, 1)`) -- for the losses/metrics workstream's
+  margin/dead-zone regression loss to consume directly.
 """
 
 from __future__ import annotations
 
 from typing import Callable, Dict
 
+import torch
 from torch import nn
 
 from dl.models.config import ModelConfig
@@ -23,8 +29,22 @@ def build_classification_head(config: ModelConfig, input_dim: int) -> nn.Module:
     return nn.Linear(input_dim, config.num_ddg_bins)
 
 
+class RegressionHead(nn.Module):
+    def __init__(self, input_dim: int):
+        super().__init__()
+        self.linear = nn.Linear(input_dim, 1)
+
+    def forward(self, pooled_representation: torch.Tensor) -> torch.Tensor:
+        return self.linear(pooled_representation).squeeze(-1)
+
+
+def build_regression_head(config: ModelConfig, input_dim: int) -> nn.Module:
+    return RegressionHead(input_dim)
+
+
 HEAD_FACTORIES: Dict[str, HeadFactory] = {
     "classification": build_classification_head,
+    "regression": build_regression_head,
 }
 
 

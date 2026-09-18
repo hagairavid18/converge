@@ -10,6 +10,12 @@ from dl.metrics.hinge_metrics import (
     NBCorrectSideAccuracy,
     is_correct_side,
 )
+from dl.metrics.regression_metrics import (
+    BoundedMAE,
+    BoundedRMSE,
+    BoundedSpearmanCorrelation,
+    compute_bounded_regression_report,
+)
 from dl.metrics.report import (
     DDGEvalBatch,
     MetricsReport,
@@ -21,6 +27,10 @@ __all__ = [
     "alanine_scanning_vs_other",
     "BoundedBinAccuracy",
     "BoundedBinConfusionMatrix",
+    "BoundedMAE",
+    "BoundedRMSE",
+    "BoundedSpearmanCorrelation",
+    "compute_bounded_regression_report",
     "compute_full_report",
     "compute_reports_for_all_splits",
     "ddg_by_interface_region",

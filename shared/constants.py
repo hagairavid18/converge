@@ -164,7 +164,7 @@ class EmbeddingSourceMode(str, Enum):
     STRUCTURE_AND_SEQUENCE = "structure_and_sequence"
 
 
-ACTIVE_EMBEDDING_SOURCE_MODE = EmbeddingSourceMode.SEQUENCE_ONLY
+ACTIVE_EMBEDDING_SOURCE_MODE = EmbeddingSourceMode.STRUCTURE_AND_SEQUENCE
 
 # ---------------------------------------------------------------------------
 # Loss / training staging
