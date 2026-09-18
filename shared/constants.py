@@ -18,7 +18,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -164,7 +164,7 @@ class EmbeddingSourceMode(str, Enum):
     STRUCTURE_AND_SEQUENCE = "structure_and_sequence"
 
 
-ACTIVE_EMBEDDING_SOURCE_MODE = EmbeddingSourceMode.STRUCTURE_ONLY
+ACTIVE_EMBEDDING_SOURCE_MODE = EmbeddingSourceMode.SEQUENCE_ONLY
 
 # ---------------------------------------------------------------------------
 # Loss / training staging
@@ -195,18 +195,27 @@ BATCH_IMBALANCE_REWEIGHT = True
 # ---------------------------------------------------------------------------
 
 
-class MutationRecord(BaseModel):
-    sample_id: str
-    pdb_id: str
-    complex_name: Optional[str] = None
-
+class PointMutation(BaseModel):
     chain_id: str
     chain_role: ChainRole
 
     wt_residue: str
     mutant_residue: str
     residue_position: int  # raw numbering, as given by SKEMPI
+    insertion_code: Optional[str] = None  # PDB insertion code, when the raw numbering alone is ambiguous
     aligned_interface_position: Optional[int] = None  # structural alignment position, used for homology dedup -- not raw numbering
+    flat_residue_index: Optional[int] = None  # 0-based index into this sample's concatenated (heavy+light+antigen) cached per-residue tensors -- see data.chain_roles.ordered_chain_ids_for_sample
+
+    interface_region: Optional[InterfaceRegion] = None
+    is_alanine_scanning: bool = False  # X -> A, for the alanine-scanning distribution analysis
+
+
+class MutationRecord(BaseModel):
+    sample_id: str
+    pdb_id: str
+    complex_name: Optional[str] = None
+
+    mutations: list[PointMutation]  # one or more point mutations measured together as a single ddG (a SKEMPI multi-mutant is one MutationRecord, not one per residue)
 
     label_type: LabelType
     # Raw value: present for BOUNDED entries, and best-effort for INEQ
@@ -216,10 +225,16 @@ class MutationRecord(BaseModel):
     ddg_bin: Optional[int] = None  # populated for BOUNDED entries under the classification formulation
     ineq_direction: Optional[str] = None  # e.g. ">" or "<", for INEQ entries
 
-    interface_region: Optional[InterfaceRegion] = None
-    is_alanine_scanning: bool = False  # X -> A, for the alanine-scanning distribution analysis
+    temperature_kelvin: Optional[float] = None  # from SKEMPI's Temperature column, same 298K fallback as data.affinity.parse_temperature_kelvin; not a model input yet, captured so it isn't lost
 
     split_membership: dict = Field(default_factory=dict)  # {SplitName.value: "train" | "val"}
 
     source_publication: Optional[str] = None
     notes: Optional[str] = None
+
+    @field_validator("mutations")
+    @classmethod
+    def _require_at_least_one_mutation(cls, mutations: list[PointMutation]) -> list[PointMutation]:
+        if not mutations:
+            raise ValueError("MutationRecord.mutations must contain at least one PointMutation")
+        return mutations

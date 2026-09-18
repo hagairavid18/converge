@@ -1,0 +1,21 @@
+dataset:
+  split: held_out_pdb
+  batch_size: 16
+
+model:
+  class_name: DDGPredictor
+  params:
+    embedding_source_mode: structure_only
+
+loss:
+  class_name: DDGLoss
+  params: {}
+
+metrics:
+  class_name: BoundedBinAccuracy
+  params: {}
+
+trainer:
+  max_epochs: 50
+  learning_rate: 0.001
+  experiment_name: structure_only_baseline

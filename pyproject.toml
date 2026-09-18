@@ -4,5 +4,34 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11"
 dependencies = [
+    "accelerate>=1.15.0",
+    "biopython>=1.88",
+    "comet-ml>=3.58.6",
+    "ipykernel>=7.3.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "nbformat>=5.11.1",
+    "pandas>=3.0.6",
     "pydantic>=2.13.5",
+    "pytorch-lightning>=2.6.6",
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.17.1",
+    "seaborn>=0.13.2",
+    "tokenizers>=0.23.2",
+    "torch>=2.14.0",
+    "torchmetrics>=1.9.0",
+    "transformers>=5.17.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+# Repo has no build-system/packaging section (it's a "virtual" uv project),
+# so make the repo root importable for `from shared...` / `from dl...`
+# rather than requiring an editable install.
+pythonpath = ["."]
