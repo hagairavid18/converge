@@ -5,6 +5,14 @@ point mutation, from SKEMPI structures/sequences. See `docs/summary.md` for a
 one-page overview, `docs/` for full design rationale and results per stage,
 and `docs/future_work.md` for open gaps.
 
+## Hardware & runtime
+
+Developed on a CPU-only machine; a single V100 GPU is sufficient for the real
+run. Needs a Linux environment (see Setup) to build the `foldseek` +
+SaProt-embedding cache. Training the committed checkpoint (20 epochs,
+`structure_saprot_only_linear_splitpool_temp5_same_pdb_allowed_20ep`) takes
+about 10 minutes on a V100 once embeddings are cached.
+
 ## Setup
 
 ```bash
