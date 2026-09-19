@@ -13,7 +13,37 @@ uv sync
 
 Python >=3.11, PyTorch 2.6. Device selection is automatic (CPU here, CUDA on
 Colab, no code changes needed). SaProt embeddings additionally need a local
-`foldseek` binary and `SKEMPI_USE_SAPROT_STRUCTURE=1`.
+`foldseek` binary and `SKEMPI_USE_SAPROT_STRUCTURE=1` -- foldseek ships no
+native Windows build, so on Windows this step (and anything that depends on
+it, including `predict.py`/`train.py --mode eval` against the committed
+checkpoint for any sample not already embedding-cached) needs a Linux
+environment: WSL, a Linux/Colab machine, or macOS.
+
+## Model
+
+![Architecture: WT/mutant complex through the frozen SaProt encoder, embedding-difference, per-chain norm-softmax pooling, and the trained regression head](skempi_architecture_diagram.png)
+
+Two-branch design; full rationale and the loss formulation in
+`docs/03_model_and_training.md`:
+
+1. **Encode** the wild-type and mutant complex with **SaProt** (frozen,
+   shared weights) -- a structure-aware protein language model that fuses
+   sequence and 3Di structural tokens into one per-residue embedding.
+2. **Confidence-weight** each branch (structural x sequence for the mutant;
+   sequence-only for the wild type, since it's the real deposited structure).
+3. **Subtract** mutant minus wild-type, per residue. Mutation identity
+   (position, wild-type -> mutant residue) is inferred purely from this
+   embedding difference -- there is deliberately no separate explicit
+   mutation-location feature, a documented, user-approved deviation from the
+   Implementation Spec's literal wording (see `CLAUDE.md`).
+4. **Pool**: a temperature-softened softmax over each residue's
+   difference-vector L2 norm, computed independently per chain role
+   (antibody / antigen) and concatenated. This diff-norm alone localizes the
+   true mutation site with ~99.7-100% top-1 accuracy (see "Model evaluation
+   & error analysis" below); temperature (T=5.0) keeps the softmax from
+   collapsing onto a single residue.
+5. Concatenate optional per-sample metadata (e.g. temperature), then a
+   linear/MLP regression head -- the only trained component in the pipeline.
 
 ## 1. Data pipeline
 
@@ -62,6 +92,30 @@ sample not already in the embedding cache is computed on the fly from
 `data/raw/pdbs/*.pdb` (auto-fetched from RCSB if missing) — not committed,
 since the full cache is 11GB.
 
+## Results
+
+Training/SKEMPI benchmark results, bucketed MAE vs. baseline, and the
+classical-regressor sanity check: see `notebooks/04_results.ipynb` (numbers
+also summarized in `docs/summary.md`); per-run training/loss curves are
+tracked in Comet.
+
+## Model evaluation & error analysis
+
+![Real WT structure colored by per-residue embedding-difference norm, with the mutated residue highlighted in magenta](joint_embeddings.png)
+
+Mutation-localization evidence and error analysis (the diff-norm above
+concentrating at the true mutation site) is in `notebooks/03_model.ipynb` and
+`docs/01_data_exploration.md`; standalone interactive 3D views are
+`notebooks/pooling_norms_3d_*.html`.
+
+## Limitations & next steps
+
+See `docs/future_work.md` for the full list (data scope, model scope,
+compute/scale, heuristics worth revisiting). One environment-specific gap:
+**foldseek** (needed for SaProt structure embeddings) ships no native
+Windows build — a Linux, WSL, macOS, or Colab environment is required for
+that step.
+
 ## Notebooks
 
 Four, backed by `notebooks/utils.py`:
@@ -71,3 +125,7 @@ Four, backed by `notebooks/utils.py`:
   the mutation (incl. inline 3D structure view; `pooling_norms_3d_*.html` are
   the standalone interactive versions).
 - `04_results.ipynb` — bucketed MAE vs. baseline, classical-regressor check.
+
+## AI prompt history
+
+See `docs/ai_prompt_history.md`.
