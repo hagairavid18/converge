@@ -5,11 +5,11 @@ Two dataset-level EDA notebooks, run on raw labels before any model exists
 
 ## What we did
 
-- **`notebooks/01_mutation_location_vs_ddg.ipynb`** — ΔΔG distribution per
+- **`notebooks/01_data_exploration.ipynb`, Part 1** — ΔΔG distribution per
   interface region (`COR`/`RIM`/`SUP`/`SUR`/`INT`, from SKEMPI's own
   `iMutation_Location(s)` column) via box + violin plots and a Kruskal-Wallis
   test, plus `label_type` (bounded/ineq/n.b.) composition per region.
-- **`notebooks/02_alanine_scanning_comparison.ipynb`** — ΔΔG for
+- **`notebooks/01_data_exploration.ipynb`, Part 2** — ΔΔG for
   alanine-scanning (X→A) mutations vs. all other single-point substitutions,
   via KDE + box plot and a Mann-Whitney U test.
 

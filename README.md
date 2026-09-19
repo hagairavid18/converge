@@ -71,15 +71,21 @@ input CSV shape.
 
 ## Notebooks
 
-- `notebooks/01_mutation_location_vs_ddg.ipynb`,
-  `notebooks/02_alanine_scanning_comparison.ipynb` — EDA (see
+- `notebooks/01_data_exploration.ipynb` — dataset-level EDA: ΔΔG vs.
+  interface region, and alanine-scanning vs. other substitutions (see
   `docs/01_data_exploration.md`).
-- `notebooks/03_mutation_localization_rationale.ipynb` — proves the
-  mut−wt embedding-difference pooling mechanism localizes the true mutation
-  site (see `docs/03_model_and_training.md`).
-- `notebooks/visualize_pooling_norms_3d.py` — renders per-residue pooling
-  norms on the real 3D structure as an interactive HTML file (open the
-  committed `notebooks/pooling_norms_3d_*.html` directly, or rerun with
-  `SKEMPI_USE_SAPROT_STRUCTURE=1 SKEMPI_USE_SMALL_CHECKPOINTS=0`).
-- `notebooks/*_probe.py` — supporting one-off validation scripts referenced
-  by the docs above.
+- `notebooks/02_data_preprocessing.ipynb` — pipeline stage counts, the
+  embedding-backend decision, and embedding-extraction timing (see
+  `docs/02_data_preprocessing.md`).
+- `notebooks/03_model.ipynb` — proves the mut−wt embedding-difference
+  pooling mechanism localizes the true mutation site, including an inline
+  3D visualization of pooling weights on the real structure (see
+  `docs/03_model_and_training.md`); backed by `notebooks/pooling_analysis_lib.py`.
+  The two `notebooks/pooling_norms_3d_*.html` files are standalone
+  interactive versions of that same 3D view (GitHub won't render the
+  embedded 3Dmol.js interactivity, so open these directly for pan/zoom/rotate).
+- `notebooks/04_results.ipynb` — classical-regressor baselines and bucketed
+  MAE vs. a naive baseline (see `docs/03_model_and_training.md`); backed by
+  `notebooks/results_lib.py`.
+- `notebooks/processed_data.py` — shared real-data CSV loader used by
+  `01_data_exploration.ipynb`.

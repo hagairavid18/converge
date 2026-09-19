@@ -1,5 +1,7 @@
 # Data Preprocessing
 
+See `notebooks/02_data_preprocessing.ipynb` for pipeline stage counts, the embedding-backend decision, and embedding-extraction timing, computed live against the processed data on disk.
+
 Two separate pipelines, easy to confuse by name alone:
 
 - **`data/pipeline.py`** — fast, non-ML. Download SKEMPI CSV + PDB structures

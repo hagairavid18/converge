@@ -57,13 +57,11 @@ Field-by-field contract:
   consumed by the model when `"temperature_kelvin"` is listed in
   `ModelConfig.extra_metadata_fields` (see
   `dl.layers.metadata_features.build_metadata_tensor`) -- `None` only for
-  hand-built `ModelInputs` that omit it (real data and
-  `dl.models.synthetic` both always populate it).
+  hand-built `ModelInputs` that omit it (real data always populates it).
 
 `ddg_bin` classification targets are not part of this schema -- they travel
-alongside a batch as a plain `long [B]` tensor (see `dl.models.synthetic`
-and `dl.training.lightning_module`) since they are a label, not a model
-input.
+alongside a batch as a plain `long [B]` tensor (see
+`dl.training.lightning_module`) since they are a label, not a model input.
 """
 
 from __future__ import annotations

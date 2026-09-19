@@ -66,20 +66,6 @@ DEFAULT_REGRESSION_DROPOUT = 0.0
 # -- see dl.training.lightning_module for the head-dispatch this drives.
 DEFAULT_ACTIVE_HEADS = ("regression",)
 
-OVERFIT_LOSS_PASS_THRESHOLD = 0.1
-OVERFIT_EXACT_ACCURACY_INFO_THRESHOLD = 0.5
-OVERFIT_WITHIN_ONE_BIN_ACCURACY_PASS_THRESHOLD = 0.95
-# Regression counterpart to OVERFIT_WITHIN_ONE_BIN_ACCURACY_PASS_THRESHOLD,
-# same reasoning: BoundedRegressionLoss has a dead zone of
-# NOISE_FLOOR_KCAL_MOL (1.0) with literally zero gradient once a prediction
-# lands inside it, so MAE can plateau anywhere within that width even after
-# loss has hit its floor (confirmed empirically -- final_train_loss reaches
-# 0.0000 while MAE sits around 0.5, well inside the 1.0 dead zone). Requiring
-# MAE tighter than the dead zone would fail runs the loss is working exactly
-# as designed on, mirroring why the classifier's pass criterion is
-# within-1-bin, not exact-bin.
-OVERFIT_REGRESSION_MAE_PASS_THRESHOLD_KCAL_MOL = NOISE_FLOOR_KCAL_MOL
-
 # Diagnostic-only threshold (dl.training.lightning_module): |ddG| at or
 # above this is reported as a separate "large effect" val/train metric
 # breakout, alongside the pooled bounded-entry metric -- not used by any

@@ -2,8 +2,8 @@
 
 Final architecture, loss, and metrics. Grounded in `dl/models/`, `dl/layers/`,
 `dl/losses/`, `dl/metrics/`; numbers cited from `docs/future_work.md`
-(primary source) and `notebooks/final_sota_vs_baseline_histogram_probe.py`,
-not re-derived here.
+(primary source) and `notebooks/04_results.ipynb` (backed by
+`notebooks/results_lib.py`), not re-derived here.
 
 ## Architecture (`dl/models/ddg_model.py`)
 
@@ -54,7 +54,7 @@ unseen-complex (`complex_seen_in_train`), (2) tail/high-|ΔΔG|
 (`HIGH_ABS_DDG_THRESHOLD_KCAL_MOL` breakout), (3) binned error —
 `BucketedMAE`, 5 named magnitude buckets.
 
-`notebooks/final_sota_vs_baseline_histogram_probe.py` is the "pair histogram
+`notebooks/04_results.ipynb` (via `notebooks/results_lib.py`) is the "pair histogram
 MAE" comparison: current-best checkpoint
 (`structure_saprot_only_linear_splitpool_temp5_same_pdb_allowed_20ep`,
 `4411e9ff...`) bucketed MAE vs. a naive per-complex-mean baseline (mean
@@ -78,7 +78,7 @@ actually better; treat as a small-sample observation.
 ## Baseline comparison
 
 The classical-regressors table in `docs/future_work.md`
-(`notebooks/classical_regressors_probe.py`, fit on the same frozen pooled
+(`notebooks/04_results.ipynb` via `notebooks/results_lib.py`, fit on the same frozen pooled
 representation with no learned head at all) has one headline finding:
 **`random_forest` ties the trained neural linear head** (0.843 vs. 0.841 on
 `complex_seen_in_train`; 1.152 vs. the neural model's best 1.052 on

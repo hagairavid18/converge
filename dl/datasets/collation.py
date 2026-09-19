@@ -1,6 +1,5 @@
 """Collates per-sample `(ModelInputs-field-dict, DDGLabels-field-dict)` pairs
-(from `dl.datasets.synthetic_dataset.SyntheticDDGDataset` or
-`dl.datasets.mutation_csv_dataset.MutationCsvDataset`) into a batched
+(from `dl.datasets.mutation_csv_dataset.MutationCsvDataset`) into a batched
 `(ModelInputs, DDGLabels)`.
 
 `mutation_distances` carries both variable-length axes at once (`[num_sites,

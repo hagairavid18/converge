@@ -52,7 +52,7 @@ for RMSE, say, changes all of them consistently):
   whether every mutation in the record sits on the antigen chain, or every
   mutation sits on an antibody chain (heavy or light) -- per
   `dl.datasets.mutation_csv_dataset.classify_mutation_side`. Motivated by an
-  earlier investigation (`notebooks/mutation_side_val_reliability_probe.py`)
+  earlier investigation (`notebooks/04_results.ipynb`)
   finding that the current best model's MAE on antigen-side mutations is
   meaningfully worse than on antibody-side mutations (roughly 1.2x-1.5x
   across two checkpoints) -- a gap invisible in the pooled val metric alone.

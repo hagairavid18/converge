@@ -20,8 +20,7 @@ the classification head's logits (Implementation Spec §4).
   also appears among the training split's own records (always `False` on
   `held_out_pdb`, by construction; a real train/val mix on
   `same_pdb_allowed`). Used only by `dl.training.lightning_module`'s
-  new-complex-vs-seen-complex validation breakout; synthetic data has no
-  such notion and always sets it `False`.
+  new-complex-vs-seen-complex validation breakout.
 - `mutation_side_id`: long `[B]`, one of
   `dl.utils.label_codes.{MUTATION_SIDE_ANTIGEN_ONLY, MUTATION_SIDE_ANTIBODY_ONLY,
   MUTATION_SIDE_BOTH}`, classifying the record's `mutations` by
@@ -29,9 +28,7 @@ the classification head's logits (Implementation Spec §4).
   mutation is on the antigen chain, `MUTATION_SIDE_ANTIBODY_ONLY` if every
   mutation is on a heavy or light chain, `MUTATION_SIDE_BOTH` otherwise. Used
   only by `dl.training.lightning_module`'s antigen-only-vs-antibody-only
-  validation breakout; synthetic data has no real chain roles, so it always
-  sets this to `MUTATION_SIDE_ANTIBODY_ONLY`, the majority class in real
-  data.
+  validation breakout.
 """
 
 from __future__ import annotations

@@ -397,7 +397,7 @@ def compute_and_cache_entry_embeddings(record: MutationRecord, chain_map: dict[s
 def entry_embeddings_are_cached(record: MutationRecord, chain_map: dict[str, str]) -> bool:
     """Read-only check mirroring `compute_and_cache_entry_embeddings`'s
     cache-hit condition, without computing or loading a PDB structure --
-    for callers (e.g. `notebooks/mutation_site_probe.py`) that want to
+    for callers (e.g. `notebooks/pooling_analysis_lib.py`) that want to
     prioritize already-cached samples over triggering new model calls.
     """
     structure_required = ("wt_structure_embedding",) if should_compute_structure_embeddings() else ()

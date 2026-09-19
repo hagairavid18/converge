@@ -73,9 +73,8 @@ def select_model_fields(cached: dict) -> dict:
     absent (e.g. pre-processing skips ESMFold altogether under
     `SEQUENCE_ONLY`), not merely `None` -- `.get(...)` keeps every
     per-residue field present (as `None` when absent) so collation can
-    always look it up, matching `dl.models.synthetic`'s always-present-keys
-    shape. `mutation_distances` is mode-independent and always required, so
-    it is indexed directly rather than defaulted.
+    always look it up. `mutation_distances` is mode-independent and always
+    required, so it is indexed directly rather than defaulted.
     """
     selected = {key: cached.get(key) for key in PER_RESIDUE_FIELDS}
     selected["mutation_distances"] = cached["mutation_distances"]

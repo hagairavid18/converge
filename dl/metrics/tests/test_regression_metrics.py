@@ -1,5 +1,6 @@
 import math
 
+import pytest
 import torch
 
 from dl.metrics.regression_metrics import (
@@ -58,43 +59,47 @@ def test_compute_bounded_regression_report_empty_mask_returns_nan():
     assert math.isnan(report["spearman_correlation"])
 
 
-def test_bucketed_mae_spans_all_five_buckets():
+@pytest.mark.parametrize(
+    "preds, target, expected_non_nan_buckets",
+    [
+        (
+            torch.tensor([-2.0, -1.0, 0.5, 1.0, 4.0]),
+            torch.tensor([-3.0, -1.5, 0.0, 1.5, 3.0]),
+            {
+                "large_destabilizing": 1.0,
+                "moderate_destabilizing": 0.5,
+                "near_zero": 0.5,
+                "moderate_stabilizing": 0.5,
+                "large_stabilizing": 1.0,
+            },
+        ),
+        (
+            torch.tensor([-2.0, -1.0, 1.0, 2.0]),
+            torch.tensor([-2.0, -1.0, 1.0, 2.0]),
+            {
+                "large_destabilizing": 0.0,
+                "moderate_destabilizing": 0.0,
+                "moderate_stabilizing": 0.0,
+                "large_stabilizing": 0.0,
+            },
+        ),
+        (
+            torch.tensor([0.1, -0.2]),
+            torch.tensor([0.2, -0.1]),
+            {"near_zero": 0.1},
+        ),
+    ],
+)
+def test_bucketed_mae_assigns_values_to_correct_buckets(preds, target, expected_non_nan_buckets):
     metric = BucketedMAE()
-    preds = torch.tensor([-2.0, -1.0, 0.5, 1.0, 4.0])
-    target = torch.tensor([-3.0, -1.5, 0.0, 1.5, 3.0])
-
     metric.update(preds, target)
     result = metric.compute()
 
     assert set(result.keys()) == set(MAGNITUDE_BUCKET_NAMES)
-    assert abs(result["large_destabilizing"] - 1.0) < 1e-6
-    assert abs(result["moderate_destabilizing"] - 0.5) < 1e-6
-    assert abs(result["near_zero"] - 0.5) < 1e-6
-    assert abs(result["moderate_stabilizing"] - 0.5) < 1e-6
-    assert abs(result["large_stabilizing"] - 1.0) < 1e-6
-
-
-def test_bucketed_mae_empty_buckets_are_nan():
-    metric = BucketedMAE()
-    metric.update(torch.tensor([0.1, -0.2]), torch.tensor([0.2, -0.1]))
-    result = metric.compute()
-
-    assert not math.isnan(result["near_zero"])
-    for bucket_name in ("large_destabilizing", "moderate_destabilizing", "moderate_stabilizing", "large_stabilizing"):
+    for bucket_name, expected_value in expected_non_nan_buckets.items():
+        assert abs(result[bucket_name] - expected_value) < 1e-6
+    for bucket_name in set(MAGNITUDE_BUCKET_NAMES) - set(expected_non_nan_buckets):
         assert math.isnan(result[bucket_name])
-
-
-def test_bucketed_mae_boundary_values_assigned_to_correct_bucket():
-    metric = BucketedMAE()
-    boundary_targets = torch.tensor([-2.0, -1.0, 1.0, 2.0])
-    metric.update(boundary_targets.clone(), boundary_targets)
-    result = metric.compute()
-
-    assert result["large_destabilizing"] == 0.0
-    assert result["moderate_destabilizing"] == 0.0
-    assert result["moderate_stabilizing"] == 0.0
-    assert result["large_stabilizing"] == 0.0
-    assert math.isnan(result["near_zero"])
 
 
 def test_bucketed_mae_accumulates_across_updates():

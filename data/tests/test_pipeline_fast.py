@@ -26,14 +26,15 @@ from shared.constants import (
 )
 
 
-def test_parse_mutation_string_without_insertion_code():
-    wt, chain, position, insertion_code, mutant = parse_mutation_string("TC121A")
-    assert (wt, chain, position, insertion_code, mutant) == ("T", "C", 121, "", "A")
-
-
-def test_parse_mutation_string_with_insertion_code():
-    wt, chain, position, insertion_code, mutant = parse_mutation_string("DL27aN")
-    assert (wt, chain, position, insertion_code, mutant) == ("D", "L", 27, "a", "N")
+@pytest.mark.parametrize(
+    "mutation_string, expected",
+    [
+        ("TC121A", ("T", "C", 121, "", "A")),
+        ("DL27aN", ("D", "L", 27, "a", "N")),
+    ],
+)
+def test_parse_mutation_string(mutation_string, expected):
+    assert parse_mutation_string(mutation_string) == expected
 
 
 def test_parse_mutation_tokens_multi_mutant_aligned_with_locations():
@@ -86,23 +87,24 @@ def test_parse_temperature_kelvin_strips_assumed_suffix():
     assert parse_temperature_kelvin("294") == pytest.approx(294.0)
 
 
-def test_compute_ddg_label_bounded_destabilizing_when_mutant_binds_weaker():
-    label = compute_ddg_label("1E-08", "3.4E-09", "298(assumed)")
-    assert label.label_type == LabelType.BOUNDED
-    assert label.ddg_kcal_mol > 0
-    assert label.ddg_bin is not None
-
-
-def test_compute_ddg_label_no_binding():
-    label = compute_ddg_label("n.b.", "3.4E-09", "298")
-    assert label.label_type == LabelType.NB
-    assert label.ddg_kcal_mol is None
-
-
-def test_compute_ddg_label_inequality_direction():
-    label = compute_ddg_label(">2E-05", "3.4E-09", "298")
-    assert label.label_type == LabelType.INEQ
-    assert label.ineq_direction == ">"
+@pytest.mark.parametrize(
+    "mutant_affinity, wt_affinity, temperature, expected_label_type, extra_check",
+    [
+        (
+            "1E-08",
+            "3.4E-09",
+            "298(assumed)",
+            LabelType.BOUNDED,
+            lambda label: label.ddg_kcal_mol > 0 and label.ddg_bin is not None,
+        ),
+        ("n.b.", "3.4E-09", "298", LabelType.NB, lambda label: label.ddg_kcal_mol is None),
+        (">2E-05", "3.4E-09", "298", LabelType.INEQ, lambda label: label.ineq_direction == ">"),
+    ],
+)
+def test_compute_ddg_label(mutant_affinity, wt_affinity, temperature, expected_label_type, extra_check):
+    label = compute_ddg_label(mutant_affinity, wt_affinity, temperature)
+    assert label.label_type == expected_label_type
+    assert extra_check(label)
 
 
 def _make_point_mutation(position, aligned_position):

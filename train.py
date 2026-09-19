@@ -10,10 +10,10 @@ from it, then either fits or validates depending on `--mode` (inferred as
 "eval" when `--ckpt` is passed and `--mode` is omitted).
 
 Real processed data is read through `dl.datasets.build_train_and_val_datasets`,
-which falls back to synthetic data when nothing is present yet under
-`shared.constants.PROCESSED_DATA_DIR`/`EMBEDDING_CACHE_DIR` for the
-configured split -- see `dl/datasets/dataset_builder.py` for exactly what a
-real `Dataset` needs to produce once the `data/` workstream is ready.
+which requires `shared.constants.PROCESSED_DATA_DIR`/`EMBEDDING_CACHE_DIR` to
+already be populated for the configured split -- see
+`dl/datasets/dataset_builder.py` for exactly what a real `Dataset` needs to
+produce.
 """
 
 from __future__ import annotations

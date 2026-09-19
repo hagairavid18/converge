@@ -15,10 +15,10 @@ so nothing is silently lost.
 - `predict.py` — inference CLI, tested end-to-end against a real checkpoint,
   reports seen-vs-unseen-complex regime per input row.
 - `README.md`.
-- `notebooks/03_mutation_localization_rationale.ipynb` — consolidates the
+- `notebooks/03_model.ipynb` — consolidates the
   raw-diff-norm and pooling-weight localization probes into one narrated,
   executed notebook.
-- `notebooks/visualize_pooling_norms_3d.py` — renders real per-residue
+- `notebooks/pooling_analysis_lib.py` — renders real per-residue
   `norm_softmax_by_chain_role` pooling weights (temperature 5.0, matching the
   current-best config) on the actual WT 3D structure via py3Dmol, with the
   true mutated residue highlighted in magenta. Run against two real cached
@@ -27,12 +27,11 @@ so nothing is silently lost.
   still spreads meaningful mass elsewhere (weight-at-site 0.38 and 0.21
   respectively, not ~1.0) — visual confirmation of the "not
   over-concentrated" property `future_work.md` describes numerically. Output
-  HTML artifacts are committed alongside the script; open them directly in a
+  HTML artifacts are committed alongside `notebooks/03_model.ipynb`; open them directly in a
   browser (needs internet, for the 3Dmol.js CDN script). Requires
   `SKEMPI_USE_SAPROT_STRUCTURE=1 SKEMPI_USE_SMALL_CHECKPOINTS=0` (the cache
   was populated with the full-size checkpoint) to rerun on other samples.
-- The two original EDA notebooks (`01_mutation_location_vs_ddg.ipynb`,
-  `02_alanine_scanning_comparison.ipynb`) were legacy-blocked on a fabricated
+- The two original EDA notebooks (merged into `notebooks/01_data_exploration.ipynb`) were legacy-blocked on a fabricated
   placeholder dataset (`notebooks/synthetic_data.py`, since deleted): it
   existed only because the real pre-processing pipeline hadn't produced
   output yet when the notebooks were first written, and it predated the
