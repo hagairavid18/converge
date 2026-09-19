@@ -8,4 +8,5 @@ data/embeddings/
 .env
 *.ckpt
 .ipynb_checkpoints/
-slurm/logs/
+slurm/
+*.pdf
