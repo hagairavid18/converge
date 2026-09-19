@@ -1,0 +1,6037 @@
+{
+  "1AHW_AB_C_DC178A_10": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_IC152Q,TC154I,YC156T_2": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_KC149A,DC150A_1": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_KC165A,KC166A_5": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_KC169A,NC171A,NC173A_7": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_LC176A_9": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_NC199A_14": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_RC200A,KC201A_15": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_SC195A,RC196A_11": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_TC121A,KC122A_0": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_TC167A_6": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_TC170A_8": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_TC197A_12": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_VC198A_13": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_YC156A_3": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1AHW_AB_C_YC157A_4": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1BJ1_HL_VW_HH101Y,SH105T_635": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH101Y,YH103I,GH104A,SH105K_636": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH101Y,YH103R,GH104D,SH105N_649": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH101Y,YH103R,GH104N,SH105T_638": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH101Y,YH103R,SH105T_634": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH101Y,YH103W,SH105T_637": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH101Y_647": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_HH107A_629": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_LH72I,TH74K_642": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_LH72V,TH74V_641": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_ML4L,TH28D,NH31H,HH101Y,SH105T_630": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_ML4L,TH28D,NH31H,HH101Y,SH105T_631": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_NH31H_646": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_SH105T_648": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_TH28D,NH31H,HH101Y,SH105T_644": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_TH28D,NH31H,YH54W,HH101Y,SH105T_643": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_TH28D,NH31H_640": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_TH28D_645": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_TH59A_627": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_YH27A_625": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_YH54A_626": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_YH54W_639": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1BJ1_HL_VW_YH99A_628": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,TH105K,YH103I,GH104A_652": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,TH105N,YH103R,GH104D_665": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,TH105S_663": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH101H,TH105S,LH72I,TH74K_658": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH101H,TH105S,LH72V,TH74V_657": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH101H,TH105S,YH54W_655": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH101H,TH105S_632": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH101H,TH105S_633": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH101H_664": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH103R,GH104N_654": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH103R_650": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N,YH103W_653": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,HH31N_651": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,DH28T,YH101H,TH105S_662": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,HH31N,YH101H,TH105S_661": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,YH101H,TH105S_656": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M,YH54W_659": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1CZ8_HL_VW_LL4M_660": {
+    "antigen": "VW",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1DQJ_AB_C_DB32A,KC97A_247": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_DB32A_237": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_DC101A_220": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_DC101A_231": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_KC96A_228": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_KC97A_219": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_KC97A_229": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_LC75A_225": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_NA31A_232": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_NA32A,KC96A_242": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_NA32A_233": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_NC93A_227": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_RC21A_217": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_RC21A_222": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_SA91A,RC21A_243": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_SA91A,YC20A_244": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_SA91A_235": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_SC100A_230": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_TC89A_226": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WB98A,KC97A_253": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WB98A,SC100A_252": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WB98A,YC20A_254": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WB98A_241": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WC62A_223": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WC63A_218": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_WC63A_224": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YA50A_234": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YA96A,RC21A_245": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YA96A,SC100A_246": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YA96A_236": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB33A_238": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB50A_239": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB53A,DC101A_251": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB53A,LC75A_250": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB53A,WC62A_248": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB53A,WC63A_249": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YB53A_240": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YC20A_216": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DQJ_AB_C_YC20A_221": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB100A,DD52A_58": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB100A,HD33A_57": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB100A,ND54A_60": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB100A_30": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB100A_40": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB54A,YC49A_51": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB54A_25": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB54A_34": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB58A,QD100A_52": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB58A_27": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DB58A_35": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_DD52A_48": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_EB98A,YD98A_50": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_EB98A_28": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_EB98A_33": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_HA30A_16": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_HD33A_47": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_ID97A_49": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_KD30A_46": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_NB56A,HD33A_62": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_NB56A,ND54A_61": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_NB56A,QD100A_55": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_NB56A_26": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_NB56A_38": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_ND54A_44": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_QD100A_43": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_RB99A_29": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_RD100bA_45": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_SA93A_21": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_TB30A_22": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_WA92A_20": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_WB52A,QD100A_56": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_WB52A_24": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_WB52A_39": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA32A,RD100bA_54": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA32A_17": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA32A_37": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA49A,HD33A_59": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA49A,ND54A_53": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA49A_18": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA49A_36": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YA50A_19": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YB101A_31": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YB101F_32": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YB32A_23": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YC49A_42": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1DVF_AB_CD_YD98A_41": {
+    "antigen": "CD",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1JRH_LH_I_AI103L,VI104M_264": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_AI59S,II61T,HI65D_260": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_AI95D,KI98R,EI100K_263": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_DH54A_276": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_DH55A_277": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_DH56A_278": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_DL28A_266": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EI45Q_259": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EI55A_301": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EI55A_320": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EI55P,II57L_286": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EI55P,II57R_284": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EI55P_288": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_EL27A_265": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_FH98A_281": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_GI50A_295": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_GI50A_315": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_HH100bA_283": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_II35N,PI37S,VI39T,VI41I_258": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI47A_289": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI47A_310": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI47M_290": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI52A_297": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI52A_317": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI52M_298": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI98A_309": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_KI98A_328": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_MI25L,II28V_257": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI48A_291": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI48A_311": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI48Q_292": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI48Q_312": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI53A_299": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI53A_318": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI79A_304": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_NI79A_323": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_RH95A_280": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_RI84A_308": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_RI84A_327": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_SI54A_300": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_SI54A_319": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_SI54G,EI55G,II57R_285": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_SI54G,EI55P,II57K_287": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_SI71Y,DI72E,HI73Q,VI74I,GI75M,DI76Y,SI78D,NI79V,LI81A_261": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_SL93A_270": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_TI14V_255": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_TI19L,EI21K_256": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_TL94A_271": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_VI51A_296": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_VI51A_316": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_VI83A,RI88K_262": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WH52A_274": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WH53A_275": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI56F_302": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI56F_321": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI56Y_303": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI56Y_322": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI82A_305": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI82A_324": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI82F_306": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI82F_325": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI82Y_307": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WI82Y_326": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WL92A_269": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_WL96A_272": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YH32A_273": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YH58A_279": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YH99A_282": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YI49A_293": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YI49A_313": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YI49F_294": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YI49F_314": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YL30A_267": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1JRH_LH_I_YL91A_268": {
+    "antigen": "I",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1KIP_AB_C_AB32Y_104": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1KIQ_AB_C_FB101Y_103": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1KIR_AB_C_SA50Y_105": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MHP_HL_A_FH99W_680": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_FH99W_683": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_FH99W_754": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_FH99W_772": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_FH99Y_755": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_FH99Y_773": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100F_681": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100F_757": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100I_728": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100L_756": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100M_677": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100M_726": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100S_758": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH100V_727": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH102S_759": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH53A_719": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH53N_770": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH53Q_751": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH53S_718": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH53W_750": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH54I_720": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH54M_722": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH54N_752": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH54T_721": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH54Y_682": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GH54Y_771": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GL92Q_713": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_GL92S_714": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_HH56Y_753": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_HL31K_693": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_HL31R_692": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_HL31W_768": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64D_673": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64D_704": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64E,SL28Q,NL52Y_688": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64E,SL28Q,NL52Y_782": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64E,SL28Q_780": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64E_671": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64E_702": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64N_674": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64N_705": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64Q_672": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_KH64Q_703": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LH60D,KH64E_686": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LH60D,KH64Q_685": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LH60D_670": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LH60D_701": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LL49F_734": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LL49K_668": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LL49K_694": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LL49W_735": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_LL49Y_733": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL30K_732": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL30V_691": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL30W_708": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL30Y,SL91I_769": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL30Y_707": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52D_736": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52E_679": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52E_737": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52K_696": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52R_695": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52Y_676": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL52Y_709": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_NL93D_715": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_RH31Q_697": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35A,GH102S_763": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35A,TH50V,GH102S_766": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35A_745": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35Q_698": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35V,GH102S_764": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35V,TH50V,GH102S_767": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH35V_746": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH52M_717": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SH52T_749": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL24R_678": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL24R_731": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL28Q_666": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL28Q_675": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL28Q_706": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL91K_712": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL91Q_739": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL91R,NL30E_716": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL91R_711": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL91T_710": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_SL91W_740": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33E,GH53Q_774": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33I,SH52T,GH53N,GH54N_776": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33I,SH52T,GH53Q,GH54F_777": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33N_743": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33Q,GH54W_775": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33Q_744": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33S,GH53W_760": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH33V_742": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50E_748": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50Q_747": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,GH102S_765": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,KH64E,SL28Q,NL52E_689": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,KH64E,SL28Q,NL52Y_690": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,KH64E,SL28Q,NL52Y_783": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,KH64E_684": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,KH64E_779": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,SH35A_762": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,SH35V_761": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,SL28Q,NL52Y_667": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,SL28Q,NL52Y_687": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,SL28Q,NL52Y_781": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V,SL28Q_778": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V_669": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_TH50V_699": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_WL90Q,FL33Y_741": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_WL90Q_738": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_YH58E,HH56N_729": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_YH58E_724": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_YH58Q,HH56N_730": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_YH58Q_723": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_YH58W_725": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MHP_HL_A_YH59E_700": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1MLC_AB_E_KB65D_907": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA32G,NA92A,SB57V,TB58D_912": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA32G,NA92A_910": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA32G_899": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA32Y_908": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,SB57V,TB58D_913": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,EB35S,GB99D_924": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,EB35S_926": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,GB99D_927": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,NA32L_917": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,RB98M,DB100Q_922": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,SA91N,SA93A_921": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,SA91N_920": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,SB30G_918": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,YB32R,RB98S_923": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,YB32W,RB98V,DB100Q_925": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D,YB59E_919": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D_914": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D_915": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A,TB28D,SB57V,TB58D_916": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_NA92A_900": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_SB57A_904": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_SB57V,TB58D_911": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_SB57V_905": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_TB28D_901": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_TB31A_902": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_TB31V_903": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_TB31W_909": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1MLC_AB_E_TB58D_906": {
+    "antigen": "E",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_DB102W_940": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_FC555A_514": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_HA91F_937": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_LC525A_511": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_NA30S,HA91F,YA92W,TA94S,DB102W,YB105F,YB109V_943": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_NA30S,HA91F,YA92W_938": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_NA30S_936": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_RB50A,RB59A_959": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_RB50A_957": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_RB59A_958": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_SC551A_512": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_TA94S_939": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_VC552A_513": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_YB105F_941": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1N8Z_AB_C_YB109V_942": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1NCA_N_LH_DH97K_152": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NCA_N_LH_EH96D_151": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NCA_N_LH_NH31Q_150": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NCA_N_LH_NH98Q_153": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_DH56E_330": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_DH56N_329": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_LL94V_336": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_TL93F_334": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_TL93W_335": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_YH100aF_332": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_YH99A_331": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1NMB_N_LH_YL32F_333": {
+    "antigen": "N",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1VFB_AB_C_DB100A,SC24A_369": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB100A_355": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB100A_77": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB54A,TC118A_368": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB54A_354": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB54A_72": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB58A_74": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB58E_89": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DB58N_88": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DC119A_343": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_DC18A_337": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_EB98A_75": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_GB31A_84": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_GB31E_85": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_GB31W_86": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_HA30A_63": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_IC124A_346": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_KC116A_341": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_LA46D_94": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_LA46E_95": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_LC129A_348": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_NA31W_92": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_NB56A_73": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_NC19A_338": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_QC121A_345": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_RB99A_76": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_RB99W_91": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_RB99Y_90": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_RC125A_347": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_SA93A_68": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_SB28D_82": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_SB28E_83": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_SB28N_80": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_SB28Q_81": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_SC24A_340": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_TA52F_98": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_TA53R_99": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_TB30A_69": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_TC118A_342": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_VC120A_344": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WA92A,IC124A_363": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WA92A,LC129A_365": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WA92A,QC121A_362": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WA92A,RC125A_364": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WA92A_351": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WA92A_67": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WB52A,DC119A_367": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WB52A_353": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_WB52A_71": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA32A,IC124A_359": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA32A,QC121A_358": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA32A_349": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA32A_64": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA32W_93": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA49A_65": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA50A,DC119A_361": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA50A,DC18A_360": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA50A_350": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA50A_66": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA50K_97": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YA50R_96": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB101A_356": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB101A_78": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB101F,DC119A_370": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB101F,VC120A_371": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB101F_357": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB101F_79": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB32A,KC116A_366": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB32A_352": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB32A_70": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YB32E_87": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1VFB_AB_C_YC23A_339": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGP_AB_C_AB33F_529": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGP_AB_C_AB33I_531": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGP_AB_C_AB33L_530": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGP_AB_C_AB33V_532": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGQ_AB_C_VB33A_536": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGQ_AB_C_VB33F_533": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGQ_AB_C_VB33I_535": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGQ_AB_C_VB33L_534": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGR_AB_C_IB33A_540": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGR_AB_C_IB33F_537": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGR_AB_C_IB33L_538": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGR_AB_C_IB33V_539": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGT_AB_C_LB33A_544": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGT_AB_C_LB33F_541": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGT_AB_C_LB33I_542": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGT_AB_C_LB33V_543": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGU_AB_C_FB33A_528": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGU_AB_C_FB33I_526": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGU_AB_C_FB33L_525": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1XGU_AB_C_FB33V_527": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "1YQV_HL_Y_RY45K_1202": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY45K_1203": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY45K_1204": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY68K,TY40S,IY55V,SY91T,QY121H_1205": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY68K,TY40S,IY55V,SY91T,QY121H_1206": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY68K,TY40S,IY55V,SY91T,QY121H_1207": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY68K,TY40S,IY55V,SY91T_1208": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY68K,TY40S,IY55V,SY91T_1209": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YQV_HL_Y_RY68K,TY40S,IY55V,SY91T_1210": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "1YY9_CD_A_AC25P_500": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_AD98P_498": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_GD54P_497": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_LD29P_494": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_NC93A_930": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_ND56A_931": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SC26D,TC31E,NC93A,ND56A,TD61E_935": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SC26D,TC31E,NC93A_934": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SC26D_928": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SC26P_501": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SC28P_502": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SC54P_503": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_SD53P_496": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_TC31E,NC93A_933": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_TC31E_929": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_TC96P_504": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_TD61E_932": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_WD52P_495": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "1YY9_CD_A_YD101P_499": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N,GH102S_881": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N,SH35A,GH102S_882": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N,SH35A_878": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N,SH35V,GH102S_883": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N,SH35V_877": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N_786": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,QL28S,YL52N_815": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K,YL52N_894": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K_804": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_EH64K_897": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_QL28S,YL52N_801": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_QL28S,YL52N_895": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50E,EH64K,QL28S,YL52N_864": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50Q,EH64K,QL28S,YL52N_863": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64D,QL28S,YL52N_790": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64D,QL28S,YL52N_820": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52D_852": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52E_796": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52E_853": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52K_812": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,FH99W_797": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,FH99W_800": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,FH99W_870": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,FH99W_888": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,FH99Y_871": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,FH99Y_889": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100F_798": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100F_873": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100I_844": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100L_872": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100M_794": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100M_842": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100S_874": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH100V_843": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH102S_875": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH53A_835": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH53N_886": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH53Q_867": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH53S_834": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH53W_866": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH54I_836": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH54M_838": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH54N_868": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH54T_837": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH54Y_799": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GH54Y_887": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GL92Q_829": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,GL92S_830": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,HH56Y_869": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,HL31K_809": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,HL31R_808": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,HL31W_884": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LH60D_787": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LH60D_817": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LL49F_850": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LL49K_785": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LL49K_810": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LL49W_851": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,LL49Y_849": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,NL30K_848": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,NL30V_807": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,NL30W_824": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,NL30Y,SL91I_885": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,NL30Y_823": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,NL93D_831": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,RH31Q_813": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH35A,GH102S_879": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH35A_861": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH35Q_814": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH35V,GH102S_880": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH35V_862": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH52M_833": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SH52T_865": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL24R_795": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL24R_847": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL91K_828": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL91Q_855": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL91R,NL30E_832": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL91R_827": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL91T_826": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,SL91W_856": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33E,GH53Q_890": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33I,SH52T,GH53N,GH54N_892": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33I,SH52T,GH53Q,GH54F_893": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33N_859": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33Q,GH54W_891": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33Q_860": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33S,GH53W_876": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,TH33V_858": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,WL90Q,FL33Y_857": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,WL90Q_854": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,YH58E,HH56N_845": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,YH58E_840": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,YH58Q,HH56N_846": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,YH58Q_839": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,YH58W_841": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N,YH59E_816": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52N_784": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S,YL52R_811": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S_793": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,QL28S_825": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,YL52N_792": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64K,YL52N_822": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64N,QL28S,YL52N_791": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64N,QL28S,YL52N_821": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64Q,QL28S,YL52N,LH60D_802": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64Q,QL28S,YL52N_789": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,EH64Q,QL28S,YL52N_819": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,QL28S,YL52N,LH60D_803": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,QL28S,YL52N_788": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,QL28S,YL52N_818": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T,YL52N_896": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T_805": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_VH50T_898": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2B2X_HL_A_YL52E_806": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2BDN_HL_A_DH31E_1054": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_LH27K_1051": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_LH27R_1050": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_NH28D_1052": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_NH28Q_1053": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_NL31K_1057": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_NL31R_1056": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_SL53D_1058": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_SL53E_1059": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_TL56D_1060": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_TL56E_1061": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2BDN_HL_A_YL30K_1055": {
+    "antigen": "HL",
+    "heavy": "A"
+  },
+  "2JEL_LH_P_AP82S_144": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_DP69E_134": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP5D_110": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP5Q_111": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP66K_132": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP68A_133": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP70A_136": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP70K_135": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP75R_140": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP83A_145": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP85A_148": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP85D_147": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP85K_149": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_EP85Q_146": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_FP2W_107": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_FP2Y_106": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_HP76A_142": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_HP76D_141": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_KP24E_119": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_KP27E_120": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_KP72E_139": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_KP72R_138": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_KP79E_143": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_NP12D_116": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_NP38T_124": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_PP11E_115": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_QP3K_108": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_QP4K_109": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_QP57E_128": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_QP71E_137": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_RP17G_117": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_RP17K_118": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_SP41C_125": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_SP43C_126": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_SP46C_127": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_SP64T_131": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP34N_121": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP34Q_122": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP36Q_123": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP62A_130": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP62N_129": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP7N_113": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_TP7S_114": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2JEL_LH_P_VP6F_112": {
+    "antigen": "P",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_CG109I,CG428Q,MG433A_966": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_CG109I,CG428Q_967": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_GG431C,MG433A_970": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_GG431C,WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_965": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_KG231C,EG267C,CG109I,CG428Q_969": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_KG231C,EG267C,WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_964": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_KG231C,EG268C,WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_962": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_961": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_WG95M,MG433A,CG96W,CG275V,KG231C,EG267C_968": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_WG95M,MG433A,CG96W,CG275V_963": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NY7_HL_G_WG95M,SG257T,WG375S,MG433A,CG96W,CG275V,CG109I,CG428Q_960": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "2NYY_DC_A_DA1058A_995": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_DA1062A_997": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_DC30Y_1026": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_EA920A_988": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_ED6Q_1030": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_FA917A_985": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_FA953A_990": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_HA1064A_999": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_HC34R_1028": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_IA956A_993": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_KA1056A_994": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_KA903A_983": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_KA923A_989": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_KD30R_1021": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_KD30S,YD31D,DD32H,SD61P_1032": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_LA919A_987": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_MD34Q_1020": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_NA918A_986": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_NA954A_991": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_QA915A_984": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_RA1061A_996": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_RA1294A_1000": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_SA902A_982": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_SA955A_992": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_SC28Q_1025": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_SC31N_1027": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_TA1063A_998": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_VD37I,ED6Q_1031": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_VD37I_1029": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_YD31D_1022": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_YD31Q_1023": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NYY_DC_A_YD57Q_1024": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_DA1058A_1014": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_DA1062A_1016": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_EA920A_1007": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_FA917A_1004": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_FA953A_1009": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_HA1064A_1018": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_IA956A_1012": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_KA1056A_1013": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_KA903A_1002": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_KA923A_1008": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_LA919A_1006": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_NA918A_1005": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_NA954A_1010": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_QA915A_1003": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_RA1061A_1015": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_RA1294A_1019": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_SA902A_1001": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_SA955A_1011": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_SD30K,DD31Y,HD32D_1033": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2NZ9_DC_A_TA1063A_1017": {
+    "antigen": "A",
+    "heavy": "D",
+    "light": "C"
+  },
+  "2VIR_AB_C_SC157L_101": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "2VIR_AB_C_TC131I_102": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "2VIS_AB_C_IC131T_100": {
+    "antigen": "C",
+    "heavy": "B",
+    "light": "A"
+  },
+  "3BDY_HL_V_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V,RH50A,RH58A_951": {
+    "antigen": "V",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BDY_HL_V_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V,YL32A,IL29A_950": {
+    "antigen": "V",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BDY_HL_V_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V_949": {
+    "antigen": "V",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BDY_HL_V_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S_948": {
+    "antigen": "V",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BDY_HL_V_DL27aN,PL27cA,RL27dK,SL28T,YL53F,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V_945": {
+    "antigen": "V",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BDY_HL_V_DL27aN,PL27cA,RL27dK,SL28T,YL53F,TL93S,TL94S_944": {
+    "antigen": "V",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V,RH50A,RH58A_956": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V,YL32A,IL29A_955": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V,YL32A_954": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V_953": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,TL93S,TL94S_952": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,YL53F,TL93S,TL94S,KH30S,DH31G,TH53S,NH54E,GH96V,DH98V_947": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BE1_HL_A_DL27aN,PL27cA,RL27dK,SL28T,YL53F,TL93S,TL94S_946": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3BN9_B_CD_DB217A_177": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_DB60aA_157": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_DB60bA_158": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_DB96A_166": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_EB169A_174": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_FB60eA_160": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_FB94A_164": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_FB97A_167": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_HB143A_169": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_IB41A_155": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_IB60A_156": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_KB224A_180": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_LB153A_173": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_NB95A_165": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_PD100H_187": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_QB145A_170": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_QB174A_175": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_QB175A_176": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_QB221aA_178": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_QB38A_154": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_QD100aV_188": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_RB222A_179": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_RB60cA_159": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_RB60fA_161": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_RB87A_163": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_SD30G_182": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_SD30N_183": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_TB150A_172": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_TB98A_168": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_TD28R_181": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_TD98Q_184": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_TD98R_185": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_YB146A_171": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_YB60gA_162": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3BN9_B_CD_YD99S_186": {
+    "antigen": "B",
+    "heavy": "D",
+    "light": "C"
+  },
+  "3G6D_LH_A_EL3V,GL76R,TL77V,QL78E,EL80G,DH54N_524": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_EL3V,GL76R,TL77V,QL78E,EL80G,FH103A,HH104A,WH105A_523": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_EL3V,GL76R,TL77V,QL78E,EL80G,TL89S,ML92I,VL93D,TL94K_522": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_EL3V,GL76R,TL77V,QL78E,EL80G_520": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_FH103A,HH104A,WH105A_515": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_FH103A_516": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_HH104A_517": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_KH210T,KH215T_519": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_TL89S,ML92I,VL93D,TL94K_521": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3G6D_LH_A_WH105A_518": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DH32A,KY97A_405": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DH32A,KY97M_408": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DH32A_404": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DH32N,KY97A_406": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DH32N,KY97M_409": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DH32N_407": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101A_433": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101A_468": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101A_490": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101E_438": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101E_471": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101F_439": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101F_474": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101G_432": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101G_467": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101K_440": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101K_473": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101N_434": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101N_470": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101Q_436": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101Q_472": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101R_437": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101R_475": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101S_435": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_DY101S_469": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_GY102V_451": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_GY102V_478": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_HY15A_479": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_IY98A_488": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY96A_375": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY96A_487": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY96M_477": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY96R_493": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97A_391": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97A_462": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97D_463": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97E_464": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97G_461": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97M_410": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97M_465": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_KY97R_466": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_LY75A_484": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NL31A,KY96A_377": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NL31A_376": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NL31D_378": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NL31E_379": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NL32A_373": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NY19D_450": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NY19K_448": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NY19Q_449": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_NY93A_486": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_QL53A_415": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21A_411": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21A_453": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21A_481": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21E_443": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21E_455": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21G_444": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21G_452": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21H_446": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21H_457": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21K_447": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21K_459": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21M_458": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21N_445": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21N_454": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21Q_442": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21Q_456": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21W_441": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY21W_460": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_RY73A_483": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_SH31A_412": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_SY100A_489": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_TY89A_485": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98A,KY96A_401": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98A,KY97A_400": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98A,YY20A_403": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98A_399": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98F,KY96A_402": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98F,KY97A_396": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98F,YY20A_398": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WH98F_397": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_WY63A_482": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33A,KY96A_394": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33A,KY97A_393": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33A,YY20A_395": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33A_392": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33F_425": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33L_426": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH33W_424": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH50A,RY21A_414": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH50A_413": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH50F_427": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH50L_428": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH53A_423": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH53F_421": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH53L_422": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH53W_420": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH58A_431": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH58F_429": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YH58L_430": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50A,KY96A_386": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50A,KY97A_387": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50A,RY21A_383": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50A,YY20A_390": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50A_380": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50F,KY96A_388": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50F,KY97A_389": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50F,RY21A_384": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50F,YY20A_385": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50F_382": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL50L_381": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL96A,RY21A_417": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL96A_416": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL96F,RY21A_418": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YL96F_419": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YY20A,NL32A_374": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YY20A_372": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YY20A_480": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YY20F_476": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YY20F_491": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3HFM_HL_Y_YY20L_492": {
+    "antigen": "Y",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_CG109I,CG428Q,MG433A_977": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_CG109I,CG428Q_978": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_KG231C,EG267C,CG109I,CG428Q_980": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_KG231C,EG267C,WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_975": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_KG231C,EG268C,WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_973": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_TG123C,GG431C,MG433A_981": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_TG123C,GG431C,WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_976": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_WG95M,MG433A,CG96W,CG275V,CG109I,CG428Q_972": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_WG95M,MG433A,CG96W,CG275V,KG231C,EG267C_979": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_WG95M,MG433A,CG96W,CG275V_974": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3IDX_HL_G_WG95M,SG257T,WG375S,MG433A,CG96W,CG275V,CG109I,CG428Q_971": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_EL93F,YL94G_612": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_EL93H,YL94G_598": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91P,NL92I,EL93D,YL94A_602": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91P,NL92L,EL93D,YL94S_603": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91P,NL92L,EL93D,YL94T_595": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91P,NL92L,EL93D,YL94V_591": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91P,NL92L,YL94A_610": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91Q,NL92D,EL93I,YL94G_581": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91Q,NL92D,EL93L,YL94G_579": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_HL91Q,NL92D,EL93Y,YL94G_584": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93L,YL94G_611": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93N,YL94S_606": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93P,YL94G_583": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93R,YL94D_607": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93W,YL94E_589": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93W,YL94G_580": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93W,YL94S_599": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92D,EL93Y,YL94A_596": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92E,EL93S,YL94G_586": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92E,EL93W,YL94G_582": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92F,EL93W,YL94G_588": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92L,EL93D,YL94S_601": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92L,EL93D,YL94S_605": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92L,EL93L,YL94G_604": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92L,EL93M,YL94G_594": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92L,EL93N,YL94G_600": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93H,YL94G_587": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93I,YL94G_597": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93S,YL94G_614": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93V,YL94G_608": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93W,YL94A_613": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93W,YL94G_585": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92S,EL93Y,YL94G_590": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92V,EL93G,YL94G_609": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_NL92V,EL93W,YL94G_592": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3L5X_A_HL_YL94A_593": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3LZF_AB_HL_DA190E,DA225G_510": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3LZF_AB_HL_DA190E_508": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3LZF_AB_HL_DA225G_509": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_SH32A_550": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_SH32Y_549": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_SH50G_551": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_SH52Y_552": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_WH30K_547": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_WH30R_548": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_WH96F_553": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_WH96F_554": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_WL91F_545": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3N85_A_LH_WL94Y_546": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_AH56G,VH57T,PH62K,VH73T_1046": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_AH56G_1036": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_CH32S,CH98A_1049": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_DH99A_1138": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_EL96A_1147": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_FL97A_1148": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_GH54A_1126": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_GH54S_1035": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_GH55A_1127": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_IH30A_1120": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_IH30T,KH52N,RH53N,GH54S,AH56G,VH57T,RH61Q,PH62K,VH73T,YH74S,YL28S_1048": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_IH30T_1041": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_KH52A_1124": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_KH52N_1042": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_MH69A_1134": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_NH100aA_1140": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_NH58A_1129": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_PH62A_1132": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_PH62K_1038": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_QH64A_1133": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_QL27A_1143": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_RH53A_1125": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_RH53N_1043": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_RH61A_1131": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_RH61Q_1044": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_RH71A_1135": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_SL30A_1145": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_TH33A_1121": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_TH33Y,GH55S,AH56G,VH57T,PH62K,VH73T,YH74S_1047": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_TH33Y_1034": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_VH57A_1128": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_VH57T_1037": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_VH73A_1136": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_VH73T_1039": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_VL3A_1142": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_WH100bA_1141": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_WH47A_1122": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_WH50A_1123": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YH100A_1139": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YH59A_1130": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YH74A_1137": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YH74S_1040": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YL28A_1144": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YL28S_1045": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NGB_HL_G_YL91A_1146": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3NPS_A_BC_DA217A_212": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_DA60aA_192": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_DA60bA_193": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_DA96A_201": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_EA169A_209": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_FA60eA_195": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_FA94A_199": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_FA97A_202": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_HA143A_204": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_IA41A_190": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_IA60A_191": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_KA224A_215": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_LA153A_208": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_NA95A_200": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_QA145A_205": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_QA174A_210": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_QA175A_211": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_QA221aA_213": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_QA38A_189": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_RA222A_214": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_RA60cA_194": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_RA60fA_196": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_RA87A_198": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_TA150A_207": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_TA98A_203": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_YA146A_206": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3NPS_A_BC_YA60gA_197": {
+    "antigen": "A",
+    "heavy": "B",
+    "light": "C"
+  },
+  "3SE8_HL_G_DH100cA_1168": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_DH99A_1166": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_DL50A_1173": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_EL1A_1170": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_EL96A_1175": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_FH100dA_1169": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_FL91A_1174": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_FL97A_1176": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_GH55A_1155": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_KH52A_1152": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_LH53A_1153": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_NL31A_1172": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_PH76aA_1164": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_PH76dA_1165": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_QH62A_1160": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_QH64A_1161": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_QH75A_1163": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_QL27A_1171": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_RH30A_1149": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_RH61A_1159": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_RH71A_1162": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_SH58A_1157": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_VH57A_1156": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_WH47A_1150": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_WH50A_1151": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_WH54A_1154": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_YH100A_1167": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE8_HL_G_YH59A_1158": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_DH74A_1190": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_EL96A_1200": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_FL97A_1201": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_GH100A_1193": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_GH100aA_1194": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_GH100cA_1195": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_GH54A_1182": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_GH59A_1185": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_GL31A_1198": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_LH34A_1177": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_LL91A_1199": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_NH57A_1184": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_PH61A_1186": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_RH64A_1187": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_RH71A_1188": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_RH73A_1189": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_TH53A_1181": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_TH99A_1192": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_VH52bA_1180": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_VH56A_1183": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_VL3A_1196": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_WH47A_1178": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_WH50A_1179": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_YH98A_1191": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3SE9_HL_G_YL30A_1197": {
+    "antigen": "G",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3W2D_A_HL_KA98N_1066": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3W2D_A_HL_KA98Q_1067": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3W2D_A_HL_KA98R_1065": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3W2D_A_HL_YA73E_1064": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3W2D_A_HL_YA73F_1062": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "3W2D_A_HL_YA73L_1063": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4GXU_ABCDEF_MN_DA190E,DA225G_507": {
+    "antigen": "ABCDEF",
+    "heavy": "M",
+    "light": "N"
+  },
+  "4GXU_ABCDEF_MN_DA190E_505": {
+    "antigen": "ABCDEF",
+    "heavy": "M",
+    "light": "N"
+  },
+  "4GXU_ABCDEF_MN_DA225G_506": {
+    "antigen": "ABCDEF",
+    "heavy": "M",
+    "light": "N"
+  },
+  "4I77_HL_Z_DH54A_561": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_DH54A_573": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_NL91A_566": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_NL91A_578": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_WH52A_563": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_WH52A_575": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_WH52F_562": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_WH52F_574": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH100A_560": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH100A_572": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH100F_559": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH100F_571": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH97A_556": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH97A_568": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH97F_555": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH97F_567": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH98A_558": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH98A_570": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH98F_557": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YH98F_569": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YL28A_565": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YL28A_577": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YL28F_564": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4I77_HL_Z_YL28F_576": {
+    "antigen": "Z",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_DA141R_622": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_DA159N,DA33N_624": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_DA82A_623": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_FA144I_620": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_FA63L_617": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_RA130K_619": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_RA81T_618": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_SA41G_616": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_TA35S_621": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4JPK_HL_A_VA30N_615": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4KRL_A_B_DA355T,FA357A_1070": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRL_A_B_DB112A_1069": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRL_A_B_RB30A_1068": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRO_A_B_DA355T,FA357A_1073": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRO_A_B_DB104A_1072": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRO_A_B_RB27A_1071": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRP_A_B_DA355T,FA357A_1075": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4KRP_A_B_EB113A_1074": {
+    "antigen": "A",
+    "heavy": "B"
+  },
+  "4NM8_ABCDEF_HL_DB19N_1077": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_IB18M_1076": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_LB38Y_1084": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_QB34R_1083": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_QB34T_1082": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_RB25M_1078": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_TB32E_1079": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_TB32I_1080": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4NM8_ABCDEF_HL_TB32R_1081": {
+    "antigen": "ABCDEF",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4U6H_AB_E_DE35A_1087": {
+    "antigen": "E",
+    "heavy": "A",
+    "light": "B"
+  },
+  "4U6H_AB_E_NE27A_1085": {
+    "antigen": "E",
+    "heavy": "A",
+    "light": "B"
+  },
+  "4U6H_AB_E_QE31A_1086": {
+    "antigen": "E",
+    "heavy": "A",
+    "light": "B"
+  },
+  "4ZS6_HL_A_DA539A_1090": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4ZS6_HL_A_EA536A_1089": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4ZS6_HL_A_WA535A_1091": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "4ZS6_HL_A_YA540A_1088": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_EA292A_1100": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_FA290A_1099": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_FA297A_1103": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_FA298A,IA299A_1106": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_FA298A_1104": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_FH104A_1111": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_IA299A_1105": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_NA281A_1093": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_NA284A,RA285A,NA286A_1098": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_NA284A_1095": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_NA286A_1097": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_NA293A,DA295A_1101": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_NH102A_1109": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_RA285A_1096": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_RH31S_1107": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_RL51A_1115": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_SH32A_1108": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_TA283A_1094": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_YA280A,NA293A,DA295A_1102": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_YA280A_1092": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_YH103A,FH104A_1112": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_YH103A_1110": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_YH109A_1113": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5C6T_HL_A_YL50A_1114": {
+    "antigen": "A",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5DWU_HL_AB_FA103A_1117": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5DWU_HL_AB_IB338A_1116": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5DWU_HL_AB_IB424A_1119": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  },
+  "5DWU_HL_AB_QB339A_1118": {
+    "antigen": "AB",
+    "heavy": "H",
+    "light": "L"
+  }
+}

@@ -2,11 +2,15 @@
 .tools/
 __pycache__/
 *.pyc
-data/raw/
-data/processed/
+data/raw/*
+!data/raw/skempi_v2.csv
+data/processed/*
+!data/processed/mutation_records.jsonl
+!data/processed/sample_chain_maps.json
 data/embeddings/
 .env
 *.ckpt
+!checkpoints/structure_saprot_only_linear_splitpool_temp5_same_pdb_allowed_20ep.ckpt
 .ipynb_checkpoints/
 slurm/
 *.pdf

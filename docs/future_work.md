@@ -445,6 +445,39 @@ neither is fed to the model yet. A quick leakage/quality check before doing so:
   WT-geometry-only assumption, not true per-mutant structure.
   Not implementing anything here yet — deferred alongside the interface-distance
   feature idea above.
+## Joint (whole-complex) SaProt encoding — validated at small scale, not adopted
+
+Current production path (`data/embedding_pipeline/saprot_entry_embeddings.py`)
+runs Foldseek once per PDB across all chains, but feeds each chain through the
+SaProt transformer **separately** (`compute_wt_saprot_bundle`/
+`compute_mut_saprot_bundle` loop per chain). Consequence, confirmed
+numerically on real examples via `notebooks/utils.py`'s pooling analysis: a
+mutation on one chain produces **exactly, bit-for-bit zero** diff-norm on the
+other chain (min=max=std=0.000000) — no cross-chain interface coupling is
+representable at the embedding level, since each chain is an independent
+forward pass with no shared attention.
+
+Ablation (2026-09-19, exploratory only, not wired into the pipeline):
+concatenated all of a sample's chains into one token sequence and ran a
+single SaProt forward pass per WT/mutant, instead of one pass per chain.
+Result — the non-mutated chain now shows real, non-uniform diff-norm via
+self-attention:
+
+| example | mutated side (std / max) | other side (std / max) |
+|---|---|---|
+| `1BJ1_HL_VW_HH101Y_647` (mutation on antibody) | 0.228 / 3.43 | 0.0022 / 0.021 |
+| `1AHW_AB_C_DC178A_10` (mutation on antigen) | 0.329 / 3.74 | 0.0062 / 0.068 |
+
+So joint encoding is mechanistically capable of cross-chain signal — roughly
+100x smaller in magnitude than the mutated side, real but modest (SaProt
+likely wasn't pretrained on multi-chain complexes, so it may not have learned
+strong interface reasoning from a naively concatenated sequence). **Not
+adopted**: switching production to this would require re-extracting all 1211
+samples' embeddings (invalidates the current 11GB cache, hours on this
+CPU-only machine) and retraining (invalidates the current checkpoint and
+every result number already reported). Left as a validated, promising
+direction rather than pursued now.
+
 ## Heuristics worth revisiting
 
 - **Antibody-vs-antigen side detection** and **heavy/light chain assignment** in

@@ -1,9 +1,9 @@
 # SKEMPI ΔΔG Predictor
 
 Predicts the change in antibody-antigen binding free energy (ΔΔG) caused by a
-point mutation, from SKEMPI structures/sequences. See `docs/` for the design
-rationale and results per pipeline stage, and `docs/future_work.md` for open
-gaps.
+point mutation, from SKEMPI structures/sequences. See `docs/summary.md` for a
+one-page overview, `docs/` for full design rationale and results per stage,
+and `docs/future_work.md` for open gaps.
 
 ## Setup
 
@@ -11,34 +11,27 @@ gaps.
 uv sync
 ```
 
-Python >=3.11, PyTorch 2.6. No local GPU is required — device selection is
-automatic (CUDA if available, else CPU); the same code runs unchanged on a
-Colab GPU. SaProt structure embeddings additionally require a local
-`foldseek` binary (`shared.constants.FOLDSEEK_BINARY_PATH`) and are gated
-behind the `SKEMPI_USE_SAPROT_STRUCTURE=1` environment variable.
+Python >=3.11, PyTorch 2.6. Device selection is automatic (CPU here, CUDA on
+Colab, no code changes needed). SaProt embeddings additionally need a local
+`foldseek` binary and `SKEMPI_USE_SAPROT_STRUCTURE=1`.
 
 ## 1. Data pipeline
-
-Builds per-sample metadata (`MutationRecord`s) from raw SKEMPI + PDB
-downloads: antibody/antigen filtering, homology deduplication, and the two
-train/val split strategies. Output: `data/processed/mutation_records.jsonl`
-and the four CSVs under `data/splits/` (`shared.constants.SPLIT_FILES`).
 
 ```bash
 uv run python -c "from data.pipeline import run_preprocessing_pipeline; run_preprocessing_pipeline()"
 ```
 
-## 2. Embedding pipeline
+Builds `MutationRecord`s from raw SKEMPI + PDB downloads (filtering, homology
+dedup, train/val splits) into `data/processed/` and `data/splits/`.
 
-Computes and caches per-sample sequence/structure embeddings (ESM-2, IgFold,
-and SaProt when enabled) into `data/embeddings/`, reading the output of step 1.
+## 2. Embedding pipeline
 
 ```bash
 uv run python -c "from data.embedding_pipeline.pipeline import run_embedding_pipeline; run_embedding_pipeline()"
 ```
 
-This is the slow, ML-heavy stage — it's separate from step 1 on purpose so the
-fast metadata pipeline can be rerun without recomputing embeddings.
+Computes and caches per-sample embeddings (ESM-2, IgFold, SaProt) into
+`data/embeddings/`. Separate from step 1 so it can be skipped on rerun.
 
 ## 3. Training
 
@@ -46,46 +39,35 @@ fast metadata pipeline can be rerun without recomputing embeddings.
 uv run python train.py --config dl/configs/structure_saprot_only_linear_splitpool_temp5_same_pdb_allowed_20ep.yaml
 ```
 
-See `dl/configs/README.md` for what each kept config varies (pooling
-strategy, embedding source, loss iteration, etc.) and `dl/configs/archive/`
-for the full hyperparameter sweep behind those choices. Comet experiment
-tracking is used automatically; set your own API key via the standard Comet
-environment variables (never hard-coded).
+See `dl/configs/README.md` for what each config varies. Comet tracking is
+automatic; set your own API key via Comet's standard env vars.
 
-## 4. Evaluation
+## 4. Evaluation & inference
 
-```bash
-uv run python train.py --config dl/configs/<name>.yaml --mode eval --ckpt <path-to-checkpoint>
-```
-
-## 5. Inference
+A trained checkpoint is committed at
+`checkpoints/structure_saprot_only_linear_splitpool_temp5_same_pdb_allowed_20ep.ckpt`
+(current-best config, tiny since the only trained component is the regression
+head) so evaluation/inference work on a fresh clone without training first —
+also needs `data/splits/`, `data/processed/`, and `data/raw/skempi_v2.csv`
+(all committed) plus `SKEMPI_USE_SAPROT_STRUCTURE=1 SKEMPI_USE_SMALL_CHECKPOINTS=0`:
 
 ```bash
-uv run python predict.py --config dl/configs/<name>.yaml --ckpt <path-to-checkpoint> --input <mutations.csv>
+uv run python train.py --config dl/configs/<name>.yaml --mode eval --ckpt <path>
+uv run python predict.py --config dl/configs/<name>.yaml --ckpt <path> --input <mutations.csv>
 ```
 
-Prints a predicted ΔΔG per row, plus whether that row's complex was seen
-during training for the given checkpoint (seen-complex/new-mutation vs.
-unseen-complex regime) — see `predict.py`'s module docstring for the expected
-input CSV shape.
+`predict.py` prints a predicted ΔΔG per row plus whether that row's complex
+was seen during the checkpoint's training (see its module docstring). Any
+sample not already in the embedding cache is computed on the fly from
+`data/raw/pdbs/*.pdb` (auto-fetched from RCSB if missing) — not committed,
+since the full cache is 11GB.
 
 ## Notebooks
 
-- `notebooks/01_data_exploration.ipynb` — dataset-level EDA: ΔΔG vs.
-  interface region, and alanine-scanning vs. other substitutions (see
-  `docs/01_data_exploration.md`).
-- `notebooks/02_data_preprocessing.ipynb` — pipeline stage counts, the
-  embedding-backend decision, and embedding-extraction timing (see
-  `docs/02_data_preprocessing.md`).
-- `notebooks/03_model.ipynb` — proves the mut−wt embedding-difference
-  pooling mechanism localizes the true mutation site, including an inline
-  3D visualization of pooling weights on the real structure (see
-  `docs/03_model_and_training.md`); backed by `notebooks/pooling_analysis_lib.py`.
-  The two `notebooks/pooling_norms_3d_*.html` files are standalone
-  interactive versions of that same 3D view (GitHub won't render the
-  embedded 3Dmol.js interactivity, so open these directly for pan/zoom/rotate).
-- `notebooks/04_results.ipynb` — classical-regressor baselines and bucketed
-  MAE vs. a naive baseline (see `docs/03_model_and_training.md`); backed by
-  `notebooks/results_lib.py`.
-- `notebooks/processed_data.py` — shared real-data CSV loader used by
-  `01_data_exploration.ipynb`.
+Four, backed by `notebooks/utils.py`:
+- `01_data_exploration.ipynb` — dataset description, dedup, stratification, gaps.
+- `02_data_preprocessing.ipynb` — embedding model choice and pipeline stats.
+- `03_model.ipynb` — architecture stages and proof the mut−wt diff localizes
+  the mutation (incl. inline 3D structure view; `pooling_norms_3d_*.html` are
+  the standalone interactive versions).
+- `04_results.ipynb` — bucketed MAE vs. baseline, classical-regressor check.
