@@ -15,14 +15,24 @@ so nothing is silently lost.
 - `predict.py` — inference CLI, tested end-to-end against a real checkpoint,
   reports seen-vs-unseen-complex regime per input row.
 - `README.md`.
+- `notebooks/03_mutation_localization_rationale.ipynb` — consolidates the
+  raw-diff-norm and pooling-weight localization probes into one narrated,
+  executed notebook.
+- `notebooks/visualize_pooling_norms_3d.py` — renders real per-residue
+  `norm_softmax_by_chain_role` pooling weights (temperature 5.0, matching the
+  current-best config) on the actual WT 3D structure via py3Dmol, with the
+  true mutated residue highlighted in magenta. Run against two real cached
+  examples (`1AHW_AB_C_DC178A_10`, `1BJ1_HL_VW_HH101Y_647`); in both, the
+  argmax weight lands exactly on the true mutation site while the softmax
+  still spreads meaningful mass elsewhere (weight-at-site 0.38 and 0.21
+  respectively, not ~1.0) — visual confirmation of the "not
+  over-concentrated" property `future_work.md` describes numerically. Output
+  HTML artifacts are committed alongside the script; open them directly in a
+  browser (needs internet, for the 3Dmol.js CDN script). Requires
+  `SKEMPI_USE_SAPROT_STRUCTURE=1 SKEMPI_USE_SMALL_CHECKPOINTS=0` (the cache
+  was populated with the full-size checkpoint) to rerun on other samples.
 
 ## Still open
-- **`notebooks/03_mutation_localization_rationale.ipynb` and
-  `notebooks/visualize_pooling_norms_3d.py` (the py3Dmol structure
-  visualization) were in progress in a background agent when this session
-  ran low on budget.** The agent may still complete and land on its own; if
-  not, resume it (see the plan file's execution-plan section 4) or redo it
-  from scratch — it's independent of everything else here.
 - The two existing EDA notebooks (`01_mutation_location_vs_ddg.ipynb`,
   `02_alanine_scanning_comparison.ipynb`) are still hardcoded to
   `USE_SYNTHETIC_DATA = True`, and their shared loader

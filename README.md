@@ -78,6 +78,8 @@ input CSV shape.
   mut−wt embedding-difference pooling mechanism localizes the true mutation
   site (see `docs/03_model_and_training.md`).
 - `notebooks/visualize_pooling_norms_3d.py` — renders per-residue pooling
-  norms on the real 3D structure as an interactive HTML file.
+  norms on the real 3D structure as an interactive HTML file (open the
+  committed `notebooks/pooling_norms_3d_*.html` directly, or rerun with
+  `SKEMPI_USE_SAPROT_STRUCTURE=1 SKEMPI_USE_SMALL_CHECKPOINTS=0`).
 - `notebooks/*_probe.py` — supporting one-off validation scripts referenced
   by the docs above.
