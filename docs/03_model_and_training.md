@@ -92,16 +92,17 @@ clearly in the learned head itself.
 just `temperature_kelvin`) onto the pooled representation, right before the
 head — additive only, `()` (default) is a byte-identical no-op.
 
-> RESULTS TODO (user to fill in): impact of `temperature_kelvin` metadata
-> feature on MAE.
+Tried on top of the current-best config: no measurable MAE improvement, so it
+isn't part of the current-best config.
 
 `LossIteration.ITERATION_2_WITH_HINGE` turns on the hinge term for
 `ineq`/`n.b.` entries alongside the bounded term; configs exist for it and
 its variants (`..._hinge.yaml`, `..._hinge_reweighted.yaml`,
 `..._tailweighted.yaml`) but the active default stays `ITERATION_1_BOUNDED_ONLY`.
 
-> RESULTS TODO (user to fill in): hinge-loss `iteration_2` results and why
-> it's currently gated off.
+Tried, including the reweighted and tail-weighted variants: no measurable
+improvement over the plain bounded-only baseline, which is why
+`ITERATION_1_BOUNDED_ONLY` stays the active default.
 
 ## Gaps
 

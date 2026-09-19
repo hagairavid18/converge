@@ -31,19 +31,24 @@ so nothing is silently lost.
   browser (needs internet, for the 3Dmol.js CDN script). Requires
   `SKEMPI_USE_SAPROT_STRUCTURE=1 SKEMPI_USE_SMALL_CHECKPOINTS=0` (the cache
   was populated with the full-size checkpoint) to rerun on other samples.
+- The two original EDA notebooks (`01_mutation_location_vs_ddg.ipynb`,
+  `02_alanine_scanning_comparison.ipynb`) were legacy-blocked on a fabricated
+  placeholder dataset (`notebooks/synthetic_data.py`, since deleted): it
+  existed only because the real pre-processing pipeline hadn't produced
+  output yet when the notebooks were first written, and it predated the
+  current `MutationRecord` schema (it called the pydantic model with
+  fields that now live nested under `mutations`, so it would have raised a
+  validation error if actually run). Fixed: `notebooks/processed_data.py` now
+  explodes each sample's JSON `mutations` column into one row per point
+  mutation, both notebooks load real data unconditionally, and both are
+  executed against the real 1057-sample dataset with real findings in
+  `docs/01_data_exploration.md`.
+- `docs/03_model_and_training.md`'s metadata-feature and hinge-loss sections
+  now state plainly that both were tried and showed no measurable
+  improvement, per the user (no numbers needed).
 
 ## Still open
-- The two existing EDA notebooks (`01_mutation_location_vs_ddg.ipynb`,
-  `02_alanine_scanning_comparison.ipynb`) are still hardcoded to
-  `USE_SYNTHETIC_DATA = True`, and their shared loader
-  (`notebooks/processed_data.py`) expects a flat per-mutation-row CSV schema
-  that predates the current one (mutations are now JSON-encoded into one
-  `mutations` column in `data/splitting.py`'s output). They currently cannot
-  produce real-data plots without a loader fix.
-- `docs/03_model_and_training.md` has two `RESULTS TODO` placeholders
-  (metadata-feature ablation, hinge/inequality loss results) awaiting numbers
-  only the user has — see that doc for exactly what's needed.
-- Everything else listed in `docs/future_work.md`'s "Gaps" section is
+- Everything listed in `docs/future_work.md`'s "Gaps" section is
   unchanged by this pass (n.b. entries, kon/koff, ΔH/ΔS, alanine
   stratification, homology-dedup field confirmation, outlier removal,
   multi-measurement noise, hard-example reweighting, loss-balance testing).

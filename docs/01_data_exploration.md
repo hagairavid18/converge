@@ -20,16 +20,19 @@ exact measurement (`bounded`, 919 samples), a one-sided inequality bound
 (`ineq`, 59), or a no-detectable-binding flag (`n.b.`, 79) — 1057 samples
 total, nothing discarded for missingness.
 
-## Caveat: real numbers not run yet
+## Findings (real data, `notebooks/processed_data.py`, 2083 point-mutation rows
+from 1057 samples)
 
-As committed, both notebooks still execute against a synthetic placeholder
-dataset (`USE_SYNTHETIC_DATA = True`) with assumed effects baked into the
-generator (region-dependent means, an alanine-scanning shift) — illustrative,
-not a finding. `notebooks/processed_data.py`'s loader also predates the
-current split-CSV schema: it expects one flat column per `MutationRecord`
-field, but real split CSVs now nest all of a sample's point mutations into
-one JSON `mutations` column. The loader needs a small update before either
-notebook can run against real data.
+- **ΔΔG varies significantly by interface region** (Kruskal-Wallis H=237.98,
+  p=2.5e-50): `support` is the most destabilizing on average (mean 1.56
+  kcal/mol, n=262), `surface` the least (mean -0.19, n=450) — consistent with
+  the usual interface-hot-spot intuition (buried/packed positions matter more
+  than solvent-exposed ones).
+- **Alanine-scanning mutations are significantly more destabilizing** than
+  other single-point substitutions (mean 1.45 vs. 0.51 kcal/mol,
+  Mann-Whitney p=6.4e-14) — one more reason the alanine-scanning
+  stratification gap below matters: the model could shortcut on this signal
+  instead of learning real structure/sequence effects.
 
 ## Gaps
 
