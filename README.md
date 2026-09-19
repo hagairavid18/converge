@@ -128,4 +128,4 @@ Four, backed by `notebooks/utils.py`:
 
 ## AI prompt history
 
-See `docs/ai_prompt_history.md`.
+Raw Claude Code session logs: `docs/ai_prompt_history/claude_code_sessions_export.zip`.
