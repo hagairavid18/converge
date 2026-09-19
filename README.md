@@ -1,9 +1,13 @@
 # SKEMPI ΔΔG Predictor
 
 Predicts the change in antibody-antigen binding free energy (ΔΔG) caused by a
-point mutation, from SKEMPI structures/sequences. See `docs/summary.md` for a
-one-page overview, `docs/` for full design rationale and results per stage,
-and `docs/future_work.md` for open gaps.
+point mutation, from SKEMPI structures/sequences.
+
+**Start here: [`model_summary.pdf`](model_summary.pdf)** — the one-page model
++ results writeup. `docs/summary.md` is the same content in markdown,
+`docs/` has full design rationale and results per stage, and
+[`skempi_limitations_future_work.pdf`](skempi_limitations_future_work.pdf) /
+`docs/future_work.md` cover open gaps.
 
 ## Hardware & runtime
 
@@ -118,7 +122,8 @@ concentrating at the true mutation site) is in `notebooks/03_model.ipynb` and
 
 ## Limitations & next steps
 
-See `docs/future_work.md` for the full list (data scope, model scope,
+One-page summary: [`skempi_limitations_future_work.pdf`](skempi_limitations_future_work.pdf).
+Full list in `docs/future_work.md` (data scope, model scope,
 compute/scale, heuristics worth revisiting). One environment-specific gap:
 **foldseek** (needed for SaProt structure embeddings) ships no native
 Windows build — a Linux, WSL, macOS, or Colab environment is required for

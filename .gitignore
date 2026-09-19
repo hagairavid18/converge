@@ -14,3 +14,5 @@ data/embeddings/
 .ipynb_checkpoints/
 slurm/
 *.pdf
+!model_summary.pdf
+!skempi_limitations_future_work.pdf
