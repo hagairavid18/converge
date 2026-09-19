@@ -76,6 +76,45 @@ def test_bounded_loss_ignores_nan_targets_on_non_bounded_rows():
     assert torch.isfinite(output.total_loss)
 
 
+def test_tail_reweight_disabled_by_default_matches_explicit_disable():
+    config_default = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY)
+    config_explicit_off = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=False)
+    predicted_ddg, label_type_id, target_ddg, _, _ = make_batch()
+
+    default_output = DDGRegressionLoss(config_default)(predicted_ddg, label_type_id, target_ddg)
+    explicit_off_output = DDGRegressionLoss(config_explicit_off)(predicted_ddg, label_type_id, target_ddg)
+
+    assert torch.allclose(default_output.total_loss, explicit_off_output.total_loss)
+
+
+def test_tail_reweight_enabled_changes_bounded_loss_when_targets_nonzero():
+    config_disabled = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=False)
+    config_enabled = DDGLossConfig(
+        iteration=LossIteration.ITERATION_1_BOUNDED_ONLY,
+        tail_reweight_enabled=True,
+        tail_reweight_alpha=1.0,
+        tail_reweight_reference_kcal_mol=2.0,
+        tail_reweight_cap=2.0,
+    )
+    predicted_ddg = torch.tensor([5.0, 5.0, -5.0])
+    label_type_id = torch.tensor([BOUNDED_ID, BOUNDED_ID, BOUNDED_ID])
+    target_ddg = torch.tensor([0.0, 2.0, -2.0])
+
+    disabled_output = DDGRegressionLoss(config_disabled)(predicted_ddg, label_type_id, target_ddg)
+    enabled_output = DDGRegressionLoss(config_enabled)(predicted_ddg, label_type_id, target_ddg)
+
+    assert not torch.allclose(disabled_output.total_loss, enabled_output.total_loss)
+
+
+def test_tail_reweight_ignores_nan_targets_on_non_bounded_rows():
+    config = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=True)
+    loss_fn = DDGRegressionLoss(config)
+    predicted_ddg, label_type_id, target_ddg, _, _ = make_batch()
+
+    output = loss_fn(predicted_ddg, label_type_id, target_ddg)
+    assert torch.isfinite(output.total_loss)
+
+
 def test_backward_pass_runs_through_total_loss():
     config = DDGLossConfig(iteration=LossIteration.ITERATION_2_WITH_HINGE)
     loss_fn = DDGRegressionLoss(config)

@@ -12,17 +12,26 @@ processed data is present under `shared.constants.PROCESSED_DATA_DIR` /
 with how the rest of this workstream unblocks itself ahead of the
 pre-processing pipeline. `dataset.force_synthetic: true` in a run config
 keeps training on synthetic data even once real data appears.
+
+`build_real_datasets` resolves the run's active `LossIteration` (via
+`resolve_loss_iteration`, from `loss.params.iteration` in the run config,
+falling back to `shared.constants.ACTIVE_LOSS_ITERATION`) and applies it only
+to the train dataset's record filtering -- the val dataset is always
+constructed with `LossIteration.ITERATION_1_BOUNDED_ONLY` regardless, so
+ineq/n.b. rows never leak into validation even when a config opts into
+`ITERATION_2_WITH_HINGE` for training.
 """
 
 from __future__ import annotations
 
 from torch.utils.data import Dataset
 
+from data.homology_dedup import normalize_protein_name
 from dl.datasets.config import DatasetConfig
 from dl.datasets.mutation_csv_dataset import MutationCsvDataset
 from dl.datasets.synthetic_dataset import SyntheticDDGDataset
 from dl.models.config import ModelConfig
-from shared.constants import EMBEDDING_CACHE_DIR, SPLIT_FILES
+from shared.constants import ACTIVE_LOSS_ITERATION, EMBEDDING_CACHE_DIR, SPLIT_FILES, LossIteration
 
 
 def is_real_embedding_file(path) -> bool:
@@ -50,14 +59,28 @@ def build_synthetic_dataset(dataset_config: DatasetConfig, model_config: ModelCo
     return SyntheticDDGDataset(model_config, num_bins, num_samples, dataset_config.synthetic_sequence_length, seed)
 
 
-def build_real_datasets(dataset_config: DatasetConfig) -> tuple[Dataset, Dataset]:
+def resolve_loss_iteration(loss_params: dict) -> LossIteration:
+    return LossIteration(loss_params.get("iteration", ACTIVE_LOSS_ITERATION))
+
+
+def build_real_datasets(dataset_config: DatasetConfig, iteration: LossIteration) -> tuple[Dataset, Dataset]:
     split_files = SPLIT_FILES[dataset_config.split]
-    return MutationCsvDataset(split_files["train"]), MutationCsvDataset(split_files["val"])
+    train_dataset = MutationCsvDataset(split_files["train"], iteration=iteration)
+    train_complex_names = frozenset(normalize_protein_name(record.complex_name or "") for record in train_dataset.records)
+    val_dataset = MutationCsvDataset(
+        split_files["val"], iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, train_complex_names=train_complex_names
+    )
+    return train_dataset, val_dataset
 
 
-def build_train_and_val_datasets(dataset_config: DatasetConfig, model_config: ModelConfig, num_bins: int) -> tuple[Dataset, Dataset]:
+def build_train_and_val_datasets(
+    dataset_config: DatasetConfig,
+    model_config: ModelConfig,
+    num_bins: int,
+    iteration: LossIteration = ACTIVE_LOSS_ITERATION,
+) -> tuple[Dataset, Dataset]:
     if not should_use_synthetic_data(dataset_config):
-        return build_real_datasets(dataset_config)
+        return build_real_datasets(dataset_config, iteration)
     train_dataset = build_synthetic_dataset(
         dataset_config, model_config, num_bins, dataset_config.synthetic_num_train_samples, dataset_config.synthetic_seed
     )

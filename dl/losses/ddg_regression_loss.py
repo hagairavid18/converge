@@ -30,6 +30,7 @@ from dl.losses.combination_utils import (
 )
 from dl.losses.config import DDGLossConfig
 from dl.losses.hinge_loss import HingeLoss
+from dl.losses.tail_weighting import tail_weight
 from dl.utils.bound_resolution import resolve_bounds as resolve_ddg_bounds
 from dl.utils.label_codes import BOUNDED_ID, INEQ_ID, NB_ID
 from dl.utils.shape_utils import flatten_last_singleton_dim
@@ -79,6 +80,13 @@ class DDGRegressionLoss(nn.Module):
             return torch.zeros((), device=predicted_ddg.device, dtype=predicted_ddg.dtype)
         safe_target_ddg = torch.where(bounded_mask, target_ddg, torch.zeros_like(target_ddg))
         per_sample_bounded = self.bounded_loss_fn(predicted_ddg, safe_target_ddg)
+        if self.config.tail_reweight_enabled:
+            per_sample_bounded = per_sample_bounded * tail_weight(
+                safe_target_ddg,
+                self.config.tail_reweight_alpha,
+                self.config.tail_reweight_reference_kcal_mol,
+                self.config.tail_reweight_cap,
+            )
         return masked_mean(per_sample_bounded, bounded_mask, n_bounded)
 
     def compute_hinge_term(

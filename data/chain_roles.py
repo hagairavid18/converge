@@ -9,6 +9,7 @@ which physical PDB chains are heavy, light, and antigen.
 from __future__ import annotations
 
 import re
+from collections import defaultdict
 
 from pydantic import BaseModel
 
@@ -23,7 +24,7 @@ from data.utils.constants import (
     LIGHT_CHAIN_LETTER,
     PDB_FIELD_SEPARATOR,
 )
-from shared.constants import ChainRole
+from shared.constants import ChainRole, PointMutation
 
 _HEAVY_FR4_REGEX = re.compile(HEAVY_CHAIN_FR4_MOTIF)
 _LIGHT_FR4_REGEX = re.compile(LIGHT_CHAIN_FR4_MOTIF)
@@ -114,6 +115,13 @@ def classify_heavy_light_by_sequence(chain_letter_to_sequence: dict[str, str]) -
         roles[unresolved[0]] = ChainRole.HEAVY
 
     return roles
+
+
+def group_mutations_by_chain_id(mutations: list[PointMutation]) -> dict[str, list[PointMutation]]:
+    grouped = defaultdict(list)
+    for mutation in mutations:
+        grouped[mutation.chain_id].append(mutation)
+    return grouped
 
 
 def ordered_chain_ids_for_sample(chain_map: dict[str, str]) -> list[str]:

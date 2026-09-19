@@ -1,5 +1,5 @@
 """End-to-end orchestration: download -> load/filter -> build records ->
-flat-index assignment -> splits (with homology-sibling routing) -> write
+flat-index assignment -> discard homology siblings -> splits -> write
 processed dataset.
 """
 
@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from data.download import download_skempi_csv, ensure_structures_for_pdb_ids
 from data.flat_indexing import assign_flat_residue_indices
-from data.homology_dedup import homology_sibling_sample_ids
+from data.homology_dedup import discard_homology_siblings
 from data.processed_io import save_mutation_records, save_sample_chain_maps
 from data.record_builder import build_all_mutation_records
 from data.skempi_loading import load_antibody_antigen_rows
@@ -21,7 +21,7 @@ from shared.constants import MutationRecord
 class PipelineReport(BaseModel):
     num_antibody_antigen_rows: int
     num_samples: int
-    num_homology_sibling_samples: int
+    num_homology_sibling_samples_discarded: int
     num_skipped_mutation_tokens: int
     num_row_errors: int
     num_structure_download_failures: int
@@ -42,7 +42,8 @@ def run_preprocessing_pipeline(download: bool = True) -> tuple[list[MutationReco
 
     build_result = build_all_mutation_records(rows)
     assign_flat_residue_indices(build_result.records, build_result.sample_chain_maps)
-    records = build_result.records
+    records = discard_homology_siblings(build_result.records)
+    num_homology_sibling_samples_discarded = len(build_result.records) - len(records)
     apply_split_memberships(records)
 
     save_mutation_records(records)
@@ -52,7 +53,7 @@ def run_preprocessing_pipeline(download: bool = True) -> tuple[list[MutationReco
     report = PipelineReport(
         num_antibody_antigen_rows=len(rows),
         num_samples=len(records),
-        num_homology_sibling_samples=len(homology_sibling_sample_ids(records)),
+        num_homology_sibling_samples_discarded=num_homology_sibling_samples_discarded,
         num_skipped_mutation_tokens=len(build_result.skipped_mutation_tokens),
         num_row_errors=len(build_result.row_errors),
         num_structure_download_failures=len(failed_structure_downloads),

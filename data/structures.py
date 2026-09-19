@@ -84,11 +84,6 @@ def chain_ca_coordinates(chain: Chain) -> np.ndarray:
     return np.asarray(coordinates, dtype=np.float32)
 
 
-def chain_ids_in_structure(structure: Structure) -> list[str]:
-    model = next(structure.get_models())
-    return [chain.id for chain in model]
-
-
 def residue_one_letter_at_position(chain: Chain, raw_position: int, insertion_code: str = "") -> str | None:
     for position, code, one_letter, _ in chain_residue_sequence(chain):
         if position == raw_position and code.upper() == insertion_code.upper():

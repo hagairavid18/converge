@@ -24,6 +24,8 @@ from shared.constants import (
     NOISE_FLOOR_KCAL_MOL,
 )
 
+from dl.utils.constants import HIGH_ABS_DDG_THRESHOLD_KCAL_MOL
+
 
 def outermost_bin_edge_kcal_mol() -> float:
     return DDG_BIN_EDGES_KCAL_MOL[-1]
@@ -92,6 +94,22 @@ class DDGLossConfig(BaseModel):
 
     iteration: LossIteration = ACTIVE_LOSS_ITERATION
     apply_batch_imbalance_reweight: bool = BATCH_IMBALANCE_REWEIGHT
+
+    tail_reweight_enabled: bool = False
+    tail_reweight_alpha: float = 1.0
+    tail_reweight_reference_kcal_mol: float = HIGH_ABS_DDG_THRESHOLD_KCAL_MOL
+    tail_reweight_cap: float = 2.0
+    """Optional, off-by-default per-sample reweighting of the bounded loss
+    term (`dl.losses.tail_weighting.tail_weight`), up-weighting large-
+    magnitude ddG targets relative to near-zero ones: `weight = 1 +
+    tail_reweight_alpha * min(|target_ddg| / tail_reweight_reference_kcal_mol,
+    tail_reweight_cap)`, i.e. 1.0 (no-op) at `target_ddg == 0`, saturating at
+    `1 + tail_reweight_alpha * tail_reweight_cap` beyond
+    `tail_reweight_reference_kcal_mol * tail_reweight_cap`. Defaults to
+    exactly today's behavior (disabled). `tail_reweight_reference_kcal_mol`
+    reuses `HIGH_ABS_DDG_THRESHOLD_KCAL_MOL`, the same threshold already used
+    to define a "large effect" for the val breakout.
+    """
 
     @field_validator("bin_edges_kcal_mol")
     @classmethod

@@ -6,13 +6,14 @@ model:
   class_name: DDGPredictor
   params:
     embedding_source_mode: structure_only
+    active_heads: [regression]
 
 loss:
-  class_name: DDGLoss
+  class_name: DDGRegressionLoss
   params: {}
 
 metrics:
-  class_name: BoundedBinAccuracy
+  class_name: BoundedMAE
   params: {}
 
 trainer:

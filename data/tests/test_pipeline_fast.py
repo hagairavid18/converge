@@ -147,36 +147,61 @@ def test_homology_sibling_sample_ids_matches_whole_mutation_set_not_subset():
     assert homology_sibling_sample_ids(records) == set()
 
 
-def test_split_assignment_forces_homology_siblings_into_val():
-    from data.splitting import assign_held_out_pdb_split, assign_same_pdb_allowed_split
+def test_discard_homology_siblings_drops_all_but_representative():
+    from data.homology_dedup import discard_homology_siblings
 
     records = [
         _make_record("s1", "2NZ9", "AR2 mab :: BoNT/A1", (874, 861)),
         _make_record("s2", "2NYY", "AR2 mab :: BoNT/A1", (874, 861)),
+        _make_record("s3", "2NZ9", "AR2 mab :: BoNT/A1", (875, 862)),
     ]
-    held_out_pdb = assign_held_out_pdb_split(records)
-    same_pdb_allowed = assign_same_pdb_allowed_split(records)
+    kept = discard_homology_siblings(records)
 
-    assert held_out_pdb["s2"] == "val"
-    assert same_pdb_allowed["s2"] == "val"
+    assert {r.sample_id for r in kept} == {"s1", "s3"}
 
 
-def test_held_out_pdb_split_does_not_push_siblings_whole_pdb_to_val():
-    from data.splitting import _assign_subset, assign_held_out_pdb_split
-    from shared.constants import RANDOM_SEED
-    from data.utils.constants import DEFAULT_VAL_FRACTION
+def test_assign_held_out_pdb_split_keeps_same_complex_together_across_pdb_codes():
+    """`1KIQ` and `1VFB` hash to opposite sides of `val_fraction=0.1` under
+    the old (buggy) per-`pdb_id` grouping -- this is exactly the leakage this
+    fix addresses -- but both records share one `complex_name`, so grouping
+    by `_record_complex_key` must place them on the same side regardless.
+    """
+    from data.splitting import assign_held_out_pdb_split
 
-    sibling_pdb_id = "2NYY"
     records = [
-        _make_record("s1", "2NZ9", "AR2 mab :: BoNT/A1", (874, 861)),
-        _make_record("s2", sibling_pdb_id, "AR2 mab :: BoNT/A1", (874, 861)),
-        _make_record("s4", sibling_pdb_id, "Unrelated pair :: Unrelated antigen", (1, 1)),
+        _make_record("s1", "1VFB", "IgG1-kappa D1.3 Fv :: HEW lysozyme", (874, 861)),
+        _make_record("s2", "1KIQ", "IgG1-kappa D1.3 Fv :: HEW lysozyme", (875, 862)),
+        _make_record("s3", "2NZ9", "AR2 mab :: BoNT/A1", (874, 861)),
     ]
-    held_out_pdb = assign_held_out_pdb_split(records)
+    assignment = assign_held_out_pdb_split(records, val_fraction=0.1)
 
-    assert held_out_pdb["s2"] == "val"
-    expected_hub_assignment = _assign_subset(sibling_pdb_id, RANDOM_SEED, DEFAULT_VAL_FRACTION)
-    assert held_out_pdb["s4"] == expected_hub_assignment
+    assert assignment["s1"] == assignment["s2"] == "val"
+    assert assignment["s3"] == "train"
+
+
+def test_assign_same_pdb_allowed_split_holds_out_some_complexes_entirely_and_mixes_others():
+    """Fixture chosen so the outcome is deterministic under the real
+    `_stable_unit_interval_hash`/`RANDOM_SEED`: "IgG1-kappa ... " sorts before
+    "AR2 mab ..." in hash order and is the only complex small enough (1
+    record) to fit under `new_complex_fraction=0.1`'s target (0.5 of 5
+    records), so it alone is held out entirely; the remaining 4 "AR2 mab"
+    records' per-sample hashes split 2-and-2 across train/val at
+    `shared_sample_fraction=0.4`.
+    """
+    from data.splitting import assign_same_pdb_allowed_split
+
+    records = [
+        _make_record("s1", "1VFB", "IgG1-kappa D1.3 Fv :: HEW lysozyme", (1, 1)),
+        _make_record("s2", "2NZ9", "AR2 mab :: BoNT/A1", (2, 2)),
+        _make_record("s3", "2NZ9", "AR2 mab :: BoNT/A1", (3, 3)),
+        _make_record("s4", "2NZ9", "AR2 mab :: BoNT/A1", (4, 4)),
+        _make_record("s5", "2NZ9", "AR2 mab :: BoNT/A1", (5, 5)),
+    ]
+    assignment = assign_same_pdb_allowed_split(records, new_complex_fraction=0.1, shared_sample_fraction=0.4)
+
+    assert assignment["s1"] == "val"
+    ar2_assignments = {assignment[sample_id] for sample_id in ("s2", "s3", "s4", "s5")}
+    assert ar2_assignments == {"train", "val"}
 
 
 def test_mutation_record_csv_row_json_encodes_mutations_list():
@@ -192,22 +217,6 @@ def test_mutation_record_csv_row_json_encodes_mutations_list():
     assert len(decoded) == 2
     assert decoded[0]["residue_position"] == 874
     assert "split_membership" not in row
-
-
-def _fake_chain_bundle(length, include_sequence, include_structure, seq_dim=8, struct_dim=16):
-    import numpy as np
-
-    bundle = {
-        "residue_coordinates": np.random.randn(length, 3).astype(np.float32),
-        "real_structure_features": np.random.randn(length, 8).astype(np.float32),
-    }
-    if include_sequence:
-        bundle["sequence_embedding"] = np.random.randn(length, seq_dim).astype(np.float32)
-        bundle["sequence_confidence"] = np.random.rand(length).astype(np.float32)
-        bundle["sequence_pseudo_log_likelihood"] = -np.random.rand(length).astype(np.float32)
-    if include_structure:
-        bundle["structure_embedding"] = np.random.randn(length, struct_dim).astype(np.float32)
-    return bundle
 
 
 def test_embedding_source_mode_gates_which_backend_actually_runs(monkeypatch):
@@ -227,14 +236,36 @@ def test_embedding_source_mode_gates_which_backend_actually_runs(monkeypatch):
     assert entry_embeddings.should_compute_structure_embeddings() is True
 
 
-def test_build_sample_tensor_bundle_omits_structure_fields_under_sequence_only(monkeypatch):
+def test_compute_wt_structure_bundle_omits_embedding_under_sequence_only(monkeypatch):
+    import numpy as np
+
     from data.embedding_pipeline import entry_embeddings
     from shared.constants import ChainRole, EmbeddingSourceMode
 
     monkeypatch.setattr(entry_embeddings, "ACTIVE_EMBEDDING_SOURCE_MODE", EmbeddingSourceMode.SEQUENCE_ONLY)
+    monkeypatch.setattr(entry_embeddings, "get_chain", lambda structure, chain_id: chain_id)
+    monkeypatch.setattr(entry_embeddings, "chain_ca_coordinates", lambda chain: np.zeros((5, 3), dtype=np.float32))
+    monkeypatch.setattr(
+        entry_embeddings, "compute_real_structure_features", lambda structure, chain_id: np.zeros((5, 8), dtype=np.float32)
+    )
 
-    wt_bundles = [_fake_chain_bundle(5, include_sequence=True, include_structure=False)]
-    mut_bundles = [_fake_chain_bundle(5, include_sequence=True, include_structure=False)]
+    bundle = entry_embeddings.compute_wt_structure_bundle(
+        structure=None, ordered_chain_ids=["A"], chain_role_by_id={"A": ChainRole.ANTIGEN}
+    )
+
+    assert "residue_coordinates" in bundle
+    assert "wt_real_structure_features" in bundle
+    assert "wt_structure_embedding" not in bundle
+    assert "wt_structure_plddt_diagnostic" not in bundle
+
+
+def test_compute_mut_structure_bundle_omits_embedding_under_sequence_only(monkeypatch):
+    import numpy as np
+
+    from data.embedding_pipeline import entry_embeddings
+    from shared.constants import ChainRole, EmbeddingSourceMode
+
+    monkeypatch.setattr(entry_embeddings, "ACTIVE_EMBEDDING_SOURCE_MODE", EmbeddingSourceMode.SEQUENCE_ONLY)
     mutations = [
         PointMutation(
             chain_id="A", chain_role=ChainRole.HEAVY, wt_residue="A", mutant_residue="G",
@@ -242,31 +273,44 @@ def test_build_sample_tensor_bundle_omits_structure_fields_under_sequence_only(m
         )
     ]
 
-    bundle = entry_embeddings.build_sample_tensor_bundle(wt_bundles, mut_bundles, mutations)
+    bundle = entry_embeddings.compute_mut_structure_bundle(
+        structure=None,
+        ordered_chain_ids=["A"],
+        chain_role_by_id={"A": ChainRole.HEAVY},
+        mutations_by_chain_id={},
+        mutations=mutations,
+        residue_coordinates=np.random.randn(5, 3).astype(np.float32),
+    )
 
-    assert "wt_sequence_embedding" in bundle
-    assert "mut_sequence_embedding" in bundle
-    assert "wt_structure_embedding" not in bundle
+    assert "mutation_distances" in bundle
     assert "mut_structure_embedding" not in bundle
-    assert "wt_structure_plddt_diagnostic" not in bundle
     assert "mut_structure_confidence" not in bundle
 
 
-def test_invert_chain_map_and_split_by_backbone():
-    from data.embedding_pipeline.entry_embeddings import invert_chain_map, split_chain_ids_by_backbone
+def test_structure_embeddings_by_chain_routes_antibody_to_igfold_and_antigen_to_zero(monkeypatch):
+    import numpy as np
 
-    chain_map = {"heavy": "B", "light": "A", "antigen": "MN"}
-    roles = invert_chain_map(chain_map)
-    assert roles == {
-        "B": ChainRole.HEAVY,
-        "A": ChainRole.LIGHT,
-        "M": ChainRole.ANTIGEN,
-        "N": ChainRole.ANTIGEN,
-    }
+    from data.embedding_pipeline import entry_embeddings
+    from data.embedding_pipeline.structure_backend import STRUCTURE_EMBEDDING_COMMON_DIM
 
-    antibody_ids, antigen_ids = split_chain_ids_by_backbone(["B", "A", "M", "N"], roles)
-    assert antibody_ids == ["B", "A"]
-    assert antigen_ids == ["M", "N"]
+    def fake_antibody_embed(chain_sequences):
+        return {
+            chain_id: (np.full((len(seq), STRUCTURE_EMBEDDING_COMMON_DIM), 7.0, dtype=np.float32), np.full(len(seq), 0.9, dtype=np.float32))
+            for chain_id, seq in chain_sequences.items()
+        }
+
+    embeddings, confidences = entry_embeddings._structure_embeddings_by_chain(
+        ordered_chain_ids=["H", "AG"],
+        antibody_sequences_by_chain_id={"H": "AAAA"},
+        fallback_sequence_for_chain=lambda cid: "AAAAAA",
+        antibody_embed_fn=fake_antibody_embed,
+    )
+
+    assert embeddings.shape == (4 + 6, STRUCTURE_EMBEDDING_COMMON_DIM)
+    assert (embeddings[:4] == 7.0).all()
+    assert (confidences[:4] == 0.9).all()
+    assert (embeddings[4:] == 0.0).all()
+    assert (confidences[4:] == 0.0).all()
 
 
 def test_pad_structure_embedding_to_common_dim():
@@ -315,10 +359,19 @@ def test_end_to_end_pipeline_on_local_raw_data():
     assert any(r.split_membership.get("same_pdb_allowed") == "val" for r in records)
     assert all(m.flat_residue_index is not None for r in records for m in r.mutations)
 
-    sibling_sample_ids = homology_sibling_sample_ids(records)
-    assert len(sibling_sample_ids) == report.num_homology_sibling_samples
-    assert all(
-        r.split_membership.get("same_pdb_allowed") == "val" and r.split_membership.get("held_out_pdb") == "val"
-        for r in records
-        if r.sample_id in sibling_sample_ids
-    )
+    held_out_pdb_sides_by_complex: dict[str, set[str]] = {}
+    for record in records:
+        complex_key = normalize_protein_name(record.complex_name or "")
+        held_out_pdb_sides_by_complex.setdefault(complex_key, set()).add(record.split_membership.get("held_out_pdb"))
+    assert all(len(sides) == 1 for sides in held_out_pdb_sides_by_complex.values())
+
+    same_pdb_allowed_train_complexes = {
+        normalize_protein_name(r.complex_name or "") for r in records if r.split_membership.get("same_pdb_allowed") == "train"
+    }
+    same_pdb_allowed_val_complexes = {
+        normalize_protein_name(r.complex_name or "") for r in records if r.split_membership.get("same_pdb_allowed") == "val"
+    }
+    assert same_pdb_allowed_val_complexes - same_pdb_allowed_train_complexes
+
+    assert report.num_homology_sibling_samples_discarded > 0
+    assert homology_sibling_sample_ids(records) == set()

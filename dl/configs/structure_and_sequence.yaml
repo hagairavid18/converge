@@ -6,16 +6,18 @@ model:
   class_name: DDGPredictor
   params:
     embedding_source_mode: structure_and_sequence
+    active_heads: [regression]
+    pooling_strategy: norm_softmax
 
 loss:
-  class_name: DDGLoss
+  class_name: DDGRegressionLoss
   params: {}
 
 metrics:
-  class_name: BoundedBinAccuracy
+  class_name: BoundedMAE
   params: {}
 
 trainer:
-  max_epochs: 50
+  max_epochs: 15
   learning_rate: 0.001
-  experiment_name: structure_and_sequence_ablation
+  experiment_name: structure_and_sequence_normsoftmax_pooling

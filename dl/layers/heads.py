@@ -8,9 +8,12 @@ registered via `register_head_factory`, not a change to `DDGPredictor`.
 - `classification`: logits over `DDG_NUM_BINS` bins (iteration 1's
   bounded-ddG head).
 - `regression`: `head_outputs["regression"]` is the predicted ddG in
-  kcal/mol, shape `[B]` (one scalar per sample, squeezed from the
-  underlying `Linear(input_dim, 1)`) -- for the losses/metrics workstream's
-  margin/dead-zone regression loss to consume directly.
+  kcal/mol, shape `[B]` (one scalar per sample) -- for the losses/metrics
+  workstream's margin/dead-zone regression loss to consume directly. Its
+  depth is config-driven: `ModelConfig.regression_hidden_dims` empty (the
+  default) gives a plain `Linear(input_dim, 1)`; non-empty grows it into an
+  MLP with a `ReLU` + `Dropout(regression_dropout)` after each hidden
+  layer, for experiments where a single linear layer under-fits.
 """
 
 from __future__ import annotations
@@ -30,16 +33,22 @@ def build_classification_head(config: ModelConfig, input_dim: int) -> nn.Module:
 
 
 class RegressionHead(nn.Module):
-    def __init__(self, input_dim: int):
+    def __init__(self, input_dim: int, hidden_dims: tuple[int, ...], dropout: float):
         super().__init__()
-        self.linear = nn.Linear(input_dim, 1)
+        layers: list[nn.Module] = []
+        prev_dim = input_dim
+        for hidden_dim in hidden_dims:
+            layers += [nn.Linear(prev_dim, hidden_dim), nn.ReLU(), nn.Dropout(dropout)]
+            prev_dim = hidden_dim
+        layers.append(nn.Linear(prev_dim, 1))
+        self.mlp = nn.Sequential(*layers)
 
     def forward(self, pooled_representation: torch.Tensor) -> torch.Tensor:
-        return self.linear(pooled_representation).squeeze(-1)
+        return self.mlp(pooled_representation).squeeze(-1)
 
 
 def build_regression_head(config: ModelConfig, input_dim: int) -> nn.Module:
-    return RegressionHead(input_dim)
+    return RegressionHead(input_dim, config.regression_hidden_dims, config.regression_dropout)
 
 
 HEAD_FACTORIES: Dict[str, HeadFactory] = {

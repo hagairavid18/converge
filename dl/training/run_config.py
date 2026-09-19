@@ -24,6 +24,7 @@ from dl.utils.factory import ClassNameParams
 class TrainerConfig(BaseModel):
     max_epochs: int = 50
     learning_rate: float = 1e-3
+    weight_decay: float = 0.0
     accelerator: str = "auto"
     devices: int = 1
     comet_project_name: str = "skempi-ddg"

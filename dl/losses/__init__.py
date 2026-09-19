@@ -7,6 +7,7 @@ from dl.losses.config import DDGLossConfig
 from dl.losses.ddg_loss import DDGLoss, DDGLossOutput
 from dl.losses.ddg_regression_loss import DDGRegressionLoss, DDGRegressionLossOutput
 from dl.losses.hinge_loss import HingeLoss
+from dl.losses.tail_weighting import tail_weight
 
 __all__ = [
     "BinDistanceWeightedLoss",
@@ -18,4 +19,5 @@ __all__ = [
     "DDGRegressionLoss",
     "DDGRegressionLossOutput",
     "HingeLoss",
+    "tail_weight",
 ]

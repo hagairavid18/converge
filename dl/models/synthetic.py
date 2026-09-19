@@ -17,6 +17,7 @@ import torch
 
 from dl.models.config import ModelConfig
 from dl.models.schemas import ModelInputs
+from dl.utils.constants import METADATA_FIELD_NORMALIZATION_STATS
 from dl.utils.embedding_mode import uses_sequence_embedding, uses_structure_embedding
 from shared.constants import RANDOM_SEED
 
@@ -45,14 +46,31 @@ def make_synthetic_inputs(
     mutation_distances, mutation_site_mask = _synthetic_mutation_distances(
         batch_size, sequence_length, max_mutation_sites, generator
     )
+    metadata_kwargs = (
+        _synthetic_metadata_fields(config, batch_size, generator) if config.extra_metadata_fields else {}
+    )
 
     return ModelInputs(
         padding_mask=torch.ones(batch_size, sequence_length, dtype=torch.bool),
         mutation_distances=mutation_distances,
         mutation_site_mask=mutation_site_mask,
+        antigen_mask=_synthetic_antigen_mask(batch_size, sequence_length),
         **structure_kwargs,
         **sequence_kwargs,
+        **metadata_kwargs,
     )
+
+
+def _synthetic_antigen_mask(batch_size: int, sequence_length: int) -> torch.Tensor:
+    """Last third of the (arbitrary, synthetic) sequence is "antigen", the
+    rest "antibody" -- realism doesn't matter here, only that both sides are
+    non-empty so `dl.layers.pooling.ChainRoleSplitPooling` has something
+    real to pool on each side.
+    """
+    antigen_start = max(1, (2 * sequence_length) // 3)
+    mask = torch.zeros(sequence_length, dtype=torch.bool)
+    mask[antigen_start:] = True
+    return mask.unsqueeze(0).expand(batch_size, -1)
 
 
 def _synthetic_mutation_distances(
@@ -77,6 +95,14 @@ def _synthetic_structure_embeddings(config: ModelConfig, batch_size: int, sequen
         "mut_structure_embedding": torch.randn(batch_size, sequence_length, config.structure_embed_dim, generator=generator),
         "mut_structure_confidence": torch.rand(batch_size, sequence_length, generator=generator),
     }
+
+
+def _synthetic_metadata_fields(config: ModelConfig, batch_size: int, generator: torch.Generator) -> dict:
+    fields = {}
+    for field in config.extra_metadata_fields:
+        mean, std = METADATA_FIELD_NORMALIZATION_STATS[field]
+        fields[field] = torch.normal(mean, std, size=(batch_size,), generator=generator)
+    return fields
 
 
 def _synthetic_sequence_embeddings(config: ModelConfig, batch_size: int, sequence_length: int, generator: torch.Generator) -> dict:

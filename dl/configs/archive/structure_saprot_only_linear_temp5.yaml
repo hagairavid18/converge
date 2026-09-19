@@ -1,0 +1,26 @@
+dataset:
+  split: held_out_pdb
+  batch_size: 16
+
+model:
+  class_name: DDGPredictor
+  params:
+    embedding_source_mode: structure_only
+    active_heads: [regression]
+    regression_hidden_dims: []
+    regression_dropout: 0.0
+    pooling_strategy: norm_softmax
+    pooling_temperature: 5.0
+
+loss:
+  class_name: DDGRegressionLoss
+  params: {}
+
+metrics:
+  class_name: BoundedMAE
+  params: {}
+
+trainer:
+  max_epochs: 7
+  learning_rate: 0.001
+  experiment_name: structure_saprot_only_linear_temp5_7ep

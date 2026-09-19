@@ -12,6 +12,7 @@ import torch
 from transformers import AutoModelForMaskedLM, AutoTokenizer
 
 from data.embedding_pipeline.device import resolve_device
+from data.utils.constants import ESM2_PSEUDO_LL_MASK_BATCH_SIZE
 from shared.constants import ACTIVE_ESM2_CHECKPOINT, ACTIVE_SEQUENCE_BACKEND, SequenceBackend
 
 
@@ -44,9 +45,23 @@ def compute_sequence_embeddings(sequence: str) -> np.ndarray:
     return per_residue.cpu().numpy()
 
 
+def _masked_batch_log_probs(base_input_ids: torch.Tensor, positions: torch.Tensor, tokenizer, model) -> torch.Tensor:
+    batch = base_input_ids.repeat(positions.shape[0], 1)
+    batch[torch.arange(positions.shape[0], device=positions.device), positions] = tokenizer.mask_token_id
+    with torch.no_grad():
+        logits = model(batch).logits
+    return torch.log_softmax(logits, dim=-1)[torch.arange(positions.shape[0], device=positions.device), positions, :]
+
+
 def compute_sequence_pseudo_log_likelihood(sequence: str) -> np.ndarray:
     """Per-residue pseudo-log-likelihood: for each position, mask it and
     score the log-probability the model assigns to the true residue there.
+
+    Scores positions in chunks of `ESM2_PSEUDO_LL_MASK_BATCH_SIZE` rather
+    than one batch of size `sequence_length` -- naively batching every
+    position at once means a batch of size L through a model whose own
+    per-layer cost is also ~O(L), so peak memory scales with L^2 and OOM'd
+    real training on a long chain (see that constant's comment).
     """
     _require_esm2_backend()
     tokenizer, model = _load_esm2_model_and_tokenizer()
@@ -54,17 +69,15 @@ def compute_sequence_pseudo_log_likelihood(sequence: str) -> np.ndarray:
 
     base_input_ids = _tokenize_sequence(sequence, tokenizer).to(device)
     sequence_length = base_input_ids.shape[1] - 2
-
-    batched_input_ids = base_input_ids.repeat(sequence_length, 1)
-    residue_positions = torch.arange(1, sequence_length + 1, device=device)
-    batched_input_ids[torch.arange(sequence_length, device=device), residue_positions] = tokenizer.mask_token_id
-
     true_residue_ids = base_input_ids[0, 1 : sequence_length + 1]
 
-    with torch.no_grad():
-        logits = model(batched_input_ids).logits
-    log_probs = torch.log_softmax(logits, dim=-1)
-    masked_position_log_probs = log_probs[torch.arange(sequence_length, device=device), residue_positions, :]
-    true_residue_log_probs = masked_position_log_probs.gather(1, true_residue_ids.unsqueeze(1)).squeeze(1)
+    log_prob_chunks = []
+    for chunk_start in range(0, sequence_length, ESM2_PSEUDO_LL_MASK_BATCH_SIZE):
+        chunk_positions = torch.arange(
+            chunk_start + 1, min(chunk_start + ESM2_PSEUDO_LL_MASK_BATCH_SIZE, sequence_length) + 1, device=device
+        )
+        log_prob_chunks.append(_masked_batch_log_probs(base_input_ids, chunk_positions, tokenizer, model))
+    masked_position_log_probs = torch.cat(log_prob_chunks, dim=0)
 
+    true_residue_log_probs = masked_position_log_probs.gather(1, true_residue_ids.unsqueeze(1)).squeeze(1)
     return true_residue_log_probs.cpu().numpy()

@@ -49,6 +49,7 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
+from data.embedding_pipeline.entry_embeddings import entry_embeddings_are_cached  # noqa: E402
 from data.processed_io import load_sample_chain_maps  # noqa: E402
 from dl.datasets.mutation_csv_dataset import (  # noqa: E402
     filter_records_for_active_iteration,
@@ -88,19 +89,13 @@ def collect_unique_single_mutation_records() -> list:
     return unique_records
 
 
-def record_has_ready_cache(record) -> bool:
-    if not sample_embedding_bundle_exists(record.sample_id):
-        return False
-    return cache_satisfies_active_mode(load_sample_embedding_bundle(record.sample_id))
-
-
-def prioritize_already_cached(records: list) -> list:
+def prioritize_already_cached(records: list, sample_chain_maps: dict) -> list:
     """Already-cached-and-current samples first, so the probe mostly reuses
     fast disk loads and only falls back to slow on-the-fly computation
     (e.g. ESMFold) for however many more are needed to reach
     `TARGET_NUM_SAMPLES`.
     """
-    return sorted(records, key=lambda record: not record_has_ready_cache(record))
+    return sorted(records, key=lambda record: not entry_embeddings_are_cached(record, sample_chain_maps[record.sample_id]))
 
 
 def branch_embedding(cached: dict, prefix: str) -> torch.Tensor:
@@ -121,7 +116,7 @@ def build_probe_sample(record, sample_chain_maps: dict) -> ProbeSample:
 
 def collect_probe_samples(target_num_samples: int) -> list[ProbeSample]:
     sample_chain_maps = load_sample_chain_maps()
-    records = prioritize_already_cached(collect_unique_single_mutation_records())[:target_num_samples]
+    records = prioritize_already_cached(collect_unique_single_mutation_records(), sample_chain_maps)[:target_num_samples]
     samples = []
     for index, record in enumerate(records):
         samples.append(build_probe_sample(record, sample_chain_maps))

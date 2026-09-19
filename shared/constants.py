@@ -129,7 +129,8 @@ class ChainRole(str, Enum):
 
 class StructureBackend(str, Enum):
     ESMFOLD = "esmfold"
-    IGFOLD = "igfold"  # reserved for a later swap; not implemented yet
+    IGFOLD = "igfold"  # live antibody structure backend; selected via hardcoded ChainRole routing in entry_embeddings.py, not through this enum
+    SAPROT = "saprot"  # see data.embedding_pipeline.saprot_backend; live via USE_SAPROT_STRUCTURE below, not this enum
 
 
 class SequenceBackend(str, Enum):
@@ -137,21 +138,41 @@ class SequenceBackend(str, Enum):
     ABLANG2 = "ablang2"  # reserved for a later swap; not implemented yet
 
 
-# Locked-in starting choice: the simplest, most general pair (ESMFold +
-# ESM-2), applied uniformly to every chain (heavy, light, antigen) rather
-# than antibody-specialized models. Change these two lines to swap backends.
-ACTIVE_STRUCTURE_BACKEND = StructureBackend.ESMFOLD
 ACTIVE_SEQUENCE_BACKEND = SequenceBackend.ESM2
+
+# Off by default (keeps existing IgFold/zero-placeholder behavior); set
+# SKEMPI_USE_SAPROT_STRUCTURE=1 to route wt/mut_structure_embedding through
+# SaProt instead, for every chain role including the antigen (see
+# data.embedding_pipeline.entry_embeddings.apply_saprot_structure_override).
+USE_SAPROT_STRUCTURE = os.environ.get("SKEMPI_USE_SAPROT_STRUCTURE", "0") == "1"
 
 # Small checkpoint by default so pre-processing and sanity checks run on the
 # CPU-only dev machine; set SKEMPI_USE_SMALL_CHECKPOINTS=0 on a GPU box
 # (e.g. Colab) to use the full-size checkpoint instead.
 ESM2_CHECKPOINT_CPU_DEV = "facebook/esm2_t12_35M_UR50D"
 ESM2_CHECKPOINT_FULL = "facebook/esm2_t33_650M_UR50D"
-ESMFOLD_CHECKPOINT = "facebook/esmfold_v1"
+
+# Hidden size of each ESM2 checkpoint above -- the model's sequence_embed_dim
+# must track whichever checkpoint actually produced the cached embeddings.
+ESM2_HIDDEN_DIM_CPU_DEV = 480
+ESM2_HIDDEN_DIM_FULL = 1280
 
 USE_SMALL_CHECKPOINTS = os.environ.get("SKEMPI_USE_SMALL_CHECKPOINTS", "1") == "1"
 ACTIVE_ESM2_CHECKPOINT = ESM2_CHECKPOINT_CPU_DEV if USE_SMALL_CHECKPOINTS else ESM2_CHECKPOINT_FULL
+ACTIVE_ESM2_HIDDEN_DIM = ESM2_HIDDEN_DIM_CPU_DEV if USE_SMALL_CHECKPOINTS else ESM2_HIDDEN_DIM_FULL
+
+# SaProt checkpoints share ESM2's exact backbone sizes/hidden dims (35M/650M,
+# 480/1280) since SaProt is initialized from ESM2 with an expanded
+# amino-acid x 3Di-structure-token vocabulary -- see docs/future_work.md for
+# why this is being prototyped (structure signal for the antigen chain,
+# which IgFold cannot provide and ESMFold OOM'd on).
+SAPROT_CHECKPOINT_CPU_DEV = "westlake-repl/SaProt_35M_AF2"
+SAPROT_CHECKPOINT_FULL = "westlake-repl/SaProt_650M_AF2"
+SAPROT_HIDDEN_DIM_CPU_DEV = 480
+SAPROT_HIDDEN_DIM_FULL = 1280
+
+ACTIVE_SAPROT_CHECKPOINT = SAPROT_CHECKPOINT_CPU_DEV if USE_SMALL_CHECKPOINTS else SAPROT_CHECKPOINT_FULL
+ACTIVE_SAPROT_HIDDEN_DIM = SAPROT_HIDDEN_DIM_CPU_DEV if USE_SMALL_CHECKPOINTS else SAPROT_HIDDEN_DIM_FULL
 
 
 class EmbeddingSourceMode(str, Enum):

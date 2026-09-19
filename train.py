@@ -25,7 +25,7 @@ import pytorch_lightning as pl
 from torch.utils.data import DataLoader
 
 from dl.datasets.collation import collate_ddg_batch
-from dl.datasets.dataset_builder import build_train_and_val_datasets
+from dl.datasets.dataset_builder import build_train_and_val_datasets, resolve_loss_iteration
 from dl.models.config import ModelConfig
 from dl.training.lightning_module import DDGLightningModule
 from dl.training.run_config import RunConfig, load_run_config
@@ -49,7 +49,8 @@ def resolve_mode(args: argparse.Namespace) -> str:
 def build_dataloaders(run_config: RunConfig) -> tuple[DataLoader, DataLoader]:
     model_config = ModelConfig(**run_config.model.params)
     num_bins = model_config.num_ddg_bins
-    train_dataset, val_dataset = build_train_and_val_datasets(run_config.dataset, model_config, num_bins)
+    iteration = resolve_loss_iteration(run_config.loss.params)
+    train_dataset, val_dataset = build_train_and_val_datasets(run_config.dataset, model_config, num_bins, iteration)
     train_loader = DataLoader(
         train_dataset,
         batch_size=run_config.dataset.batch_size,
@@ -73,6 +74,7 @@ def build_lightning_module(run_config: RunConfig, ckpt_path: Optional[str]) -> D
         loss_config=run_config.loss.model_dump(),
         metrics_config=run_config.metrics.model_dump(),
         learning_rate=run_config.trainer.learning_rate,
+        weight_decay=run_config.trainer.weight_decay,
         split_name=run_config.dataset.split,
     )
     if ckpt_path:

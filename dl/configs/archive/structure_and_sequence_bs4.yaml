@@ -1,0 +1,22 @@
+dataset:
+  split: held_out_pdb
+  batch_size: 4
+
+model:
+  class_name: DDGPredictor
+  params:
+    embedding_source_mode: structure_and_sequence
+    active_heads: [regression]
+
+loss:
+  class_name: DDGRegressionLoss
+  params: {}
+
+metrics:
+  class_name: BoundedMAE
+  params: {}
+
+trainer:
+  max_epochs: 50
+  learning_rate: 0.001
+  experiment_name: structure_and_sequence_ablation_bs4

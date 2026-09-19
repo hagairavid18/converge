@@ -23,6 +23,7 @@ from dl.losses.combination_utils import (
 )
 from dl.losses.config import DDGLossConfig
 from dl.losses.hinge_loss import HingeLoss
+from dl.losses.tail_weighting import tail_weight
 from dl.utils.bin_utils import compute_bin_centers, expected_ddg_from_logits
 from dl.utils.bound_resolution import resolve_bounds as resolve_ddg_bounds
 from dl.utils.label_codes import BOUNDED_ID, INEQ_ID, NB_ID
@@ -76,13 +77,28 @@ class DDGLoss(nn.Module):
         )
 
     def compute_bounded_term(
-        self, logits: torch.Tensor, target_bin: torch.Tensor, bounded_mask: torch.Tensor, n_bounded: int
+        self,
+        logits: torch.Tensor,
+        target_bin: torch.Tensor,
+        bounded_mask: torch.Tensor,
+        n_bounded: int,
+        target_ddg: torch.Tensor | None = None,
     ) -> torch.Tensor:
         if n_bounded == 0:
             return torch.zeros((), device=logits.device, dtype=logits.dtype)
         safe_target_bin = target_bin.clone()
         safe_target_bin[~bounded_mask] = 0
         per_sample_bounded = self.bounded_loss_fn(logits, safe_target_bin)
+        if self.config.tail_reweight_enabled:
+            if target_ddg is None:
+                raise ValueError("target_ddg is required when tail_reweight_enabled is set")
+            safe_target_ddg = torch.where(bounded_mask, target_ddg, torch.zeros_like(target_ddg))
+            per_sample_bounded = per_sample_bounded * tail_weight(
+                safe_target_ddg,
+                self.config.tail_reweight_alpha,
+                self.config.tail_reweight_reference_kcal_mol,
+                self.config.tail_reweight_cap,
+            )
         return masked_mean(per_sample_bounded, bounded_mask, n_bounded)
 
     def compute_hinge_term(
@@ -118,6 +134,7 @@ class DDGLoss(nn.Module):
         bound_kcal_mol: torch.Tensor | None = None,
         direction: torch.Tensor | None = None,
         iteration: LossIteration | None = None,
+        target_ddg: torch.Tensor | None = None,
     ) -> DDGLossOutput:
         """
         logits: (B, num_bins) float, the bounded-ddG classification head's raw logits.
@@ -126,6 +143,9 @@ class DDGLoss(nn.Module):
         bound_kcal_mol, direction: (B,) float, required only when the hinge term is
             active; see `dl.losses.hinge_loss` and `resolve_bounds` for their contract.
         iteration: overrides `self.config.iteration` (mainly for tests).
+        target_ddg: (B,) float, required only when `self.config.tail_reweight_enabled`
+            (the classification head's own target is `target_bin`, not this) --
+            see `dl.losses.tail_weighting.tail_weight`.
         """
         iteration = iteration or self.config.iteration
 
@@ -138,7 +158,7 @@ class DDGLoss(nn.Module):
 
         hinge_active = iteration == LossIteration.ITERATION_2_WITH_HINGE and n_hinge > 0
 
-        bounded_loss = self.compute_bounded_term(logits, target_bin, bounded_mask, n_bounded)
+        bounded_loss = self.compute_bounded_term(logits, target_bin, bounded_mask, n_bounded, target_ddg=target_ddg)
         hinge_loss = (
             self.compute_hinge_term(logits, label_type_id, bound_kcal_mol, direction, hinge_mask, n_hinge)
             if hinge_active

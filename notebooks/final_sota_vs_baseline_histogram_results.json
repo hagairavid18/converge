@@ -1,0 +1,33 @@
+{
+  "sota_checkpoint": "4411e9ff0f8f467cb17c5ab60e51a926/checkpoints/epoch=19-step=940.ckpt",
+  "sota_overall_mae": 0.8427321314811707,
+  "sota_bucket_mae": {
+    "large_destabilizing": 1.294242262840271,
+    "moderate_destabilizing": 0.5594605207443237,
+    "near_zero": 0.7505974769592285,
+    "moderate_stabilizing": 0.7356117367744446,
+    "large_stabilizing": 1.3425732851028442
+  },
+  "sota_bucket_n": {
+    "large_destabilizing": 12,
+    "moderate_destabilizing": 16,
+    "near_zero": 103,
+    "moderate_stabilizing": 27,
+    "large_stabilizing": 23
+  },
+  "baseline_overall_mae": 1.2796704845872298,
+  "baseline_bucket_mae": {
+    "large_destabilizing": 3.2209370873002534,
+    "moderate_destabilizing": 2.515246221407913,
+    "near_zero": 0.977749256334346,
+    "moderate_stabilizing": 0.4968914720867417,
+    "large_stabilizing": 1.6783013031034444
+  },
+  "baseline_bucket_n": {
+    "large_destabilizing": 12,
+    "moderate_destabilizing": 16,
+    "near_zero": 103,
+    "moderate_stabilizing": 27,
+    "large_stabilizing": 23
+  }
+}

@@ -1,26 +1,21 @@
 """Structure-model embeddings and per-residue structural confidence.
 
-Mixed backbone, by `shared.constants.ChainRole` (a deliberate, confirmed
-reintroduction of mixed-model complexity -- see `docs/future_work.md`):
-IgFold for antibody chains (`HEAVY`/`LIGHT` -- purpose-built for antibody
-variable-domain prediction from sequence alone, much lighter/faster than
-ESMFold) and ESMFold for the `ANTIGEN` chain (IgFold does not handle
-arbitrary protein sequences). Which function a caller uses is how that
-routing happens -- `data.embedding_pipeline.entry_embeddings` picks IgFold's
-antibody functions for heavy/light chains and ESMFold's for the antigen.
+IgFold only, for antibody chains (`ChainRole.HEAVY`/`LIGHT` -- purpose-built
+for antibody variable-domain prediction from sequence alone, called once
+for both together since IgFold models VH-VL pairing jointly). IgFold cannot
+process arbitrary (non-antibody) sequences, so the antigen chain gets no
+structure model call at all: `compute_zero_structure_placeholder` returns an
+all-zero embedding/confidence of the same shape instead. ESMFold was tried
+for the antigen chain and dropped -- its O(L^2) triangular attention OOM'd
+folding one real (long) chain even on a 32GB V100 -- so this is a deliberate
+simplification, not an oversight; see `docs/future_work.md`.
 
-Both backbones follow the same two-branch treatment: the wild-type branch
-runs the model too (for a dimensionally-compatible embedding) but reports no
-confidence; the mutant branch reports confidence (ESMFold: pLDDT; IgFold:
-prmsd, converted to a bounded, higher-is-better pseudo-confidence via
-`exp(-prmsd)` -- flagged in the pipeline report as a design choice, since
-prmsd is a predicted RMSD in Angstroms, lower-is-better and unbounded, not
-directly comparable to pLDDT's [0, 1] higher-is-better scale).
-
-IgFold's per-residue embedding dimension (64) is much smaller than ESMFold's
-(1024), and both feed the same per-sample concatenated tensor, so IgFold's
-output is zero-padded up to `STRUCTURE_EMBEDDING_COMMON_DIM` before it
-leaves this module -- the simplest resolution, per the pipeline report.
+Both the wild-type and mutant branches run IgFold for antibody chains: the
+wild-type branch for a dimensionally-compatible embedding but reports no
+confidence (per the spec, only sequence confidence feeds the wild-type
+branch's confidence weighting); the mutant branch reports a bounded,
+higher-is-better pseudo-confidence derived from IgFold's prmsd via
+`exp(-prmsd)`.
 """
 
 from __future__ import annotations
@@ -30,10 +25,8 @@ from functools import lru_cache
 import numpy as np
 import torch
 from igfold import IgFoldRunner
-from transformers import AutoTokenizer, EsmForProteinFolding
 
 from data.embedding_pipeline.device import resolve_device
-from shared.constants import ESMFOLD_CHECKPOINT
 
 STRUCTURE_EMBEDDING_COMMON_DIM = 1024
 
@@ -50,59 +43,18 @@ def pad_structure_embedding_to_common_dim(embedding: np.ndarray) -> np.ndarray:
     return np.pad(embedding, ((0, 0), (0, missing)))
 
 
-@lru_cache(maxsize=1)
-def _load_esmfold_model_and_tokenizer():
-    tokenizer = AutoTokenizer.from_pretrained(ESMFOLD_CHECKPOINT)
-    model = EsmForProteinFolding.from_pretrained(ESMFOLD_CHECKPOINT, low_cpu_mem_usage=True)
-    model.to(resolve_device())
-    model.eval()
-    return tokenizer, model
-
-
-def _run_esmfold(sequence: str):
-    tokenizer, model = _load_esmfold_model_and_tokenizer()
-    device = resolve_device()
-    input_ids = tokenizer([sequence], return_tensors="pt", add_special_tokens=False)["input_ids"].to(device)
-    with torch.no_grad():
-        return model(input_ids)
-
-
-def compute_mutant_structural_embedding(sequence: str) -> tuple[np.ndarray, np.ndarray]:
-    """Antigen-branch mutant structure embedding via ESMFold. Returns
-    (per_residue_embedding[L, 1024], per_residue_plddt[L], in [0, 1])."""
-    output = _run_esmfold(sequence)
-    per_residue_embedding = output.s_s[0].cpu().numpy()
-    per_residue_plddt = output.plddt[0].mean(axis=-1).cpu().numpy()
-    return per_residue_embedding, per_residue_plddt
-
-
-def compute_wild_type_structural_embedding(sequence: str) -> tuple[np.ndarray, np.ndarray]:
-    """Antigen-branch wild-type structure embedding via ESMFold. Returns
-    (per_residue_embedding[L, 1024], per_residue_plddt_diagnostic[L]).
-
-    Run on the real (not mutated) sequence so it is dimensionally compatible
-    with `compute_mutant_structural_embedding`'s output for the model's
-    branch-subtraction step -- a deliberate reconciliation with
-    `dl.models.schemas.ModelInputs` (which expects `wt_structure_embedding`
-    in the same `structure_embed_dim` as `mut_structure_embedding`), flagged
-    in the pipeline report as a place where two readings of the spec's
-    "wild-type structure: use the real PDB structure directly" wording could
-    diverge -- see `data.embedding_pipeline.real_structure_features` for the
-    alternative (real-coordinate-derived, not model-predicted) features,
-    cached alongside this under a separate key rather than discarded.
-
-    The pLDDT is ESMFold's internal self-assessed confidence in this same
-    (otherwise unused) wild-type run. Per the spec, the wild-type branch
-    gets no structural confidence in the model's confidence-weighting (that
-    still only uses sequence confidence for this branch) -- this value is
-    captured purely as a diagnostic for a deferred validation check, see
-    `docs/future_work.md`, and must not be wired into the model as a
-    confidence input.
+def compute_zero_structure_placeholder(sequence_length: int) -> tuple[np.ndarray, np.ndarray]:
+    """Stand-in for a chain IgFold cannot fold (the antigen): an all-zero
+    embedding/confidence of the same shape a real structure-model call would
+    produce, so it concatenates cleanly with the antibody chains' real
+    IgFold output. A deliberate, documented placeholder (see module
+    docstring), not a computed value -- revisit if a structure signal for
+    the antigen chain turns out to matter.
     """
-    output = _run_esmfold(sequence)
-    per_residue_embedding = output.s_s[0].cpu().numpy()
-    per_residue_plddt = output.plddt[0].mean(axis=-1).cpu().numpy()
-    return per_residue_embedding, per_residue_plddt
+    return (
+        np.zeros((sequence_length, STRUCTURE_EMBEDDING_COMMON_DIM), dtype=np.float32),
+        np.zeros(sequence_length, dtype=np.float32),
+    )
 
 
 @lru_cache(maxsize=1)
@@ -130,9 +82,9 @@ def compute_mutant_antibody_structural_embeddings(
     chain_sequences: dict[str, str],
 ) -> dict[str, tuple[np.ndarray, np.ndarray]]:
     """Antibody-branch (heavy/light) mutant structure embeddings via IgFold,
-    one call for all chains passed together (IgFold models heavy/light
-    pairing jointly). Returns, per chain id, (embedding[L, 1024] zero-padded
-    from IgFold's native 64-dim, confidence[L] in (0, 1] via `exp(-prmsd)`).
+    one call for all chains passed together. Returns, per chain id,
+    (embedding[L, 1024] zero-padded from IgFold's native 64-dim,
+    confidence[L] in (0, 1] via `exp(-prmsd)`).
     """
     output = _run_igfold(chain_sequences)
     embedding_by_chain = _split_by_chain_lengths(output.structure_embs[0].cpu().numpy(), chain_sequences)
@@ -147,13 +99,10 @@ def compute_wild_type_antibody_structural_embeddings(
     chain_sequences: dict[str, str],
 ) -> dict[str, tuple[np.ndarray, np.ndarray]]:
     """Antibody-branch (heavy/light) wild-type structure embeddings via
-    IgFold, dimensionally compatible with the mutant branch's output (see
-    `compute_wild_type_structural_embedding`'s docstring for why the
-    wild-type branch still runs the model). Returns, per chain id,
-    (embedding[L, 1024], prmsd_diagnostic[L]) -- the diagnostic mirrors
-    `compute_wild_type_structural_embedding`'s `plddt_diagnostic`: captured
-    for the same deferred validation check, never fed to the model as a
-    confidence input.
+    IgFold, dimensionally compatible with the mutant branch's output.
+    Returns, per chain id, (embedding[L, 1024], prmsd_diagnostic[L]) --
+    captured for a deferred validation check (see `docs/future_work.md`),
+    never fed to the model as a confidence input.
     """
     output = _run_igfold(chain_sequences)
     embedding_by_chain = _split_by_chain_lengths(output.structure_embs[0].cpu().numpy(), chain_sequences)

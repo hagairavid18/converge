@@ -12,7 +12,7 @@ loss:
   params: {}
 
 metrics:
-  class_name: RegressionMAE
+  class_name: BoundedMAE
   params: {}
 
 trainer:

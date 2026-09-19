@@ -92,6 +92,41 @@ def test_ineq_missing_bound_falls_back_to_default():
     assert resolved_bound[1].item() == -config.ineq_default_bound_kcal_mol
 
 
+def test_tail_reweight_disabled_by_default_matches_explicit_disable():
+    config_default = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY)
+    config_explicit_off = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=False)
+    logits, label_type_id, target_bin, _, _ = make_batch(config_default)
+    target_ddg = torch.tensor([0.0, 2.5, -4.5, float("nan"), float("nan"), float("nan")])
+
+    default_output = DDGLoss(config_default)(logits, label_type_id, target_bin, target_ddg=target_ddg)
+    explicit_off_output = DDGLoss(config_explicit_off)(logits, label_type_id, target_bin, target_ddg=target_ddg)
+
+    assert torch.allclose(default_output.total_loss, explicit_off_output.total_loss)
+
+
+def test_tail_reweight_enabled_changes_bounded_loss_when_targets_nonzero():
+    config_disabled = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=False)
+    config_enabled = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=True)
+    logits, label_type_id, target_bin, _, _ = make_batch(config_disabled)
+    target_ddg = torch.tensor([0.0, 2.5, -4.5, float("nan"), float("nan"), float("nan")])
+
+    disabled_output = DDGLoss(config_disabled)(logits, label_type_id, target_bin, target_ddg=target_ddg)
+    enabled_output = DDGLoss(config_enabled)(logits, label_type_id, target_bin, target_ddg=target_ddg)
+
+    assert not torch.allclose(disabled_output.total_loss, enabled_output.total_loss)
+
+
+def test_tail_reweight_requires_target_ddg():
+    config = DDGLossConfig(iteration=LossIteration.ITERATION_1_BOUNDED_ONLY, tail_reweight_enabled=True)
+    loss_fn = DDGLoss(config)
+    logits, label_type_id, target_bin, _, _ = make_batch(config)
+    try:
+        loss_fn(logits, label_type_id, target_bin)
+        assert False, "expected ValueError"
+    except ValueError:
+        pass
+
+
 def test_batch_imbalance_reweight_upweights_minority_category():
     config_reweighted = DDGLossConfig(
         iteration=LossIteration.ITERATION_2_WITH_HINGE, apply_batch_imbalance_reweight=True

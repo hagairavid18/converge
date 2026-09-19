@@ -3,16 +3,16 @@ point mutations (matched by aligned interface position, not raw residue
 number) on the same antibody-antigen pair, re-crystallized under a different
 PDB code.
 
-These are not dropped: `data.splitting` routes every non-representative
-"sibling" in a homology group into validation on both splits (never
-training), so the model can later be checked for consistent predictions
-across nominally-identical mutations deposited under different structures.
-Records for the same mutation(s) on genuinely different antibody/antigen
-partners are never grouped this way -- a different binding partner is a
-different measurement. A multi-point mutant is matched as a whole: two
-records only group together if they share the exact same set of point
-mutations (by chain role, wt/mutant residue, and aligned position) on the
-same pair, not just an overlapping subset.
+`data.pipeline` discards every non-representative "sibling" in a homology
+group before splitting (`discard_homology_siblings`): a duplicate deposition
+of a mutation already represented elsewhere in the dataset isn't new
+information for either training or validation. Records for the same
+mutation(s) on genuinely different antibody/antigen partners are never
+grouped this way -- a different binding partner is a different measurement.
+A multi-point mutant is matched as a whole: two records only group together
+if they share the exact same set of point mutations (by chain role, wt/mutant
+residue, and aligned position) on the same pair, not just an overlapping
+subset.
 """
 
 from __future__ import annotations
@@ -58,9 +58,17 @@ def group_homologous_records(records: list[MutationRecord]) -> dict[tuple, list[
 def homology_sibling_sample_ids(records: list[MutationRecord]) -> set[str]:
     """Sample ids that are not the (first-encountered, deterministic)
     representative of their homology group -- these are the ones
-    `data.splitting` forces into validation.
+    `discard_homology_siblings` drops.
     """
     siblings: set[str] = set()
     for group in group_homologous_records(records).values():
         siblings.update(record.sample_id for record in group[1:])
     return siblings
+
+
+def discard_homology_siblings(records: list[MutationRecord]) -> list[MutationRecord]:
+    """Drops every non-representative sibling, keeping one record per
+    homology group (plus every ungroupable/singleton record untouched).
+    """
+    sibling_ids = homology_sibling_sample_ids(records)
+    return [record for record in records if record.sample_id not in sibling_ids]

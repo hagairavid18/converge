@@ -6,16 +6,20 @@ model:
   class_name: DDGPredictor
   params:
     embedding_source_mode: sequence_only
+    active_heads: [regression]
+    regression_hidden_dims: [64]
+    regression_dropout: 0.3
+    pooling_strategy: norm_softmax
 
 loss:
-  class_name: DDGLoss
+  class_name: DDGRegressionLoss
   params: {}
 
 metrics:
-  class_name: BoundedBinAccuracy
+  class_name: BoundedMAE
   params: {}
 
 trainer:
-  max_epochs: 50
+  max_epochs: 15
   learning_rate: 0.001
   experiment_name: sequence_only_baseline

@@ -14,7 +14,13 @@ def count_label_type(label_type_id: torch.Tensor, label_id: int) -> int:
 
 
 def masked_mean(per_sample: torch.Tensor, mask: torch.Tensor, count: int) -> torch.Tensor:
-    return (per_sample * mask.to(per_sample.dtype)).sum() / count
+    """`torch.where`, not `per_sample * mask`: a masked-out position may hold
+    `NaN` (e.g. `bound_kcal_mol` is `NaN` for bounded rows, which never
+    resolve to a hinge bound) -- multiplying `NaN * 0` still yields `NaN` and
+    poisons the sum, whereas `where` discards the masked-out value outright.
+    """
+    zeroed = torch.where(mask, per_sample, torch.zeros_like(per_sample))
+    return zeroed.sum() / count
 
 
 def inverse_frequency_weights(n_a: int, n_b: int) -> tuple[float, float]:

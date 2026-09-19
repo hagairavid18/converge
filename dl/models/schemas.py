@@ -9,12 +9,12 @@ Field-by-field contract:
 
 - `wt_structure_embedding`, `mut_structure_embedding`: float32
   `[B, L, structure_embed_dim]`. Per-residue structure-backend embedding
-  (ESMFold per-residue single representation, see
-  `shared.constants.ACTIVE_STRUCTURE_BACKEND`) for the wild-type and mutant
-  complex respectively -- the wild type is also run through ESMFold (same
-  embedding space), just with no structural confidence reported for it.
-  `None` when the active `EmbeddingSourceMode` does not use structure
-  embeddings.
+  (IgFold for antibody chains, SaProt when `shared.constants.
+  USE_SAPROT_STRUCTURE` is set, see `data.embedding_pipeline.
+  entry_embeddings`) for the wild-type and mutant complex respectively --
+  the wild type is also run through the structure backend (same embedding
+  space), just with no structural confidence reported for it. `None` when
+  the active `EmbeddingSourceMode` does not use structure embeddings.
 - `wt_sequence_embedding`, `mut_sequence_embedding`: float32
   `[B, L, sequence_embed_dim]`. Per-residue sequence-backend embedding
   (ESM-2, see `shared.constants.ACTIVE_SEQUENCE_BACKEND`). `None` when the
@@ -44,6 +44,21 @@ Field-by-field contract:
   `False` marks padding out to `M`. Like `padding_mask`, this is always
   constructed at collation time from each sample's own mutation count,
   never supplied upstream.
+- `antigen_mask`: bool `[B, L]`. `True` marks a residue on the antigen
+  chain, `False` marks heavy/light (antibody) -- computed once by
+  pre-processing from real chain boundaries (`data.chain_roles.
+  ordered_chain_ids_for_sample`), always present regardless of
+  `ACTIVE_EMBEDDING_SOURCE_MODE` (pure geometry/role fact, not a model
+  output, same category as `mutation_distances`). Consumed by
+  `dl.layers.pooling.ChainRoleSplitPooling` to pool each side of the
+  interface separately.
+- `temperature_kelvin`: float32 `[B]`. Per-sample experiment metadata
+  (SKEMPI's binding temperature), always present in the record but only
+  consumed by the model when `"temperature_kelvin"` is listed in
+  `ModelConfig.extra_metadata_fields` (see
+  `dl.layers.metadata_features.build_metadata_tensor`) -- `None` only for
+  hand-built `ModelInputs` that omit it (real data and
+  `dl.models.synthetic` both always populate it).
 
 `ddg_bin` classification targets are not part of this schema -- they travel
 alongside a batch as a plain `long [B]` tensor (see `dl.models.synthetic`
@@ -67,6 +82,7 @@ PER_RESIDUE_FIELDS = frozenset(
         "wt_sequence_confidence",
         "mut_structure_confidence",
         "mut_sequence_confidence",
+        "antigen_mask",
     }
 )
 
@@ -87,6 +103,9 @@ class ModelInputs(BaseModel):
 
     mutation_distances: torch.Tensor
     mutation_site_mask: torch.Tensor
+    antigen_mask: torch.Tensor
+
+    temperature_kelvin: Optional[torch.Tensor] = None
 
     @model_validator(mode="after")
     def _check_batch_size_consistency(self) -> "ModelInputs":
